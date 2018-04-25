@@ -1,0 +1,32 @@
+#header {
+
+}
+
+#header-inner {
+    @extend .l-container;
+}
+
+
+
+.header-logo {
+    display: block;
+    width: 8.5rem;
+
+    svg {
+        display: block;
+        height: auto;
+        width: 100%;
+    }
+
+    path {
+        fill: $invert;
+        transition: fill 100ms linear;
+    }
+
+    &:hover {
+        path {
+            fill: $hover;
+        }
+    }
+
+}
