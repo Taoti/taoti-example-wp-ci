@@ -3,10 +3,13 @@
 // This plugin will automatically determine if a theme is not set, in which case it will switch to the 'jp-base' theme. Useful for when Pantheon deploys a new site based on our custom WordPress upstream.
 
 function jp_switch_theme(){
-    $current_theme = wp_get_theme();
 
-    if( $current_theme->exists() === false ){
-        switch_theme( 'jp-base' );
+    if( is_blog_installed() ){
+        $current_theme = wp_get_theme();
+
+        if( $current_theme->exists() === false ){
+            switch_theme( 'jp-base' );
+        }
     }
 
 }
