@@ -27,6 +27,9 @@ workflows:
           description: Clear WP cache after code commit
           script: private/scripts/clear_cache_wp.php
         - type: webphp
+          description: Clear Pantheon cache after code commit
+          script: private/scripts/clear_cache_wp_pantheon.php
+        - type: webphp
           description: Post to Slack after code commit
           script: private/scripts/slack_notification.php
   clear_cache:
