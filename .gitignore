@@ -57,6 +57,10 @@ Thumbs.db
 ##########
 .sass-cache
 
+# NPM #
+##########
+node_modules
+
 # Pantheon No-No Files #
 # This path is reserved for the CMS filesystem and
 # should not be added or committed to your codebase.
