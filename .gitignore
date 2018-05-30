@@ -56,3 +56,12 @@ Thumbs.db
 # SASS #
 ##########
 .sass-cache
+
+# Pantheon No-No Files #
+# This path is reserved for the CMS filesystem and
+# should not be added or committed to your codebase.
+####################################################
+sites/default/files
+wp-content/uploads
+web/sites/default/files
+web/wp-content/uploads
