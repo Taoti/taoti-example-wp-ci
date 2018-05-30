@@ -59,7 +59,10 @@ Thumbs.db
 
 # NPM #
 ##########
-node_modules
+
+# Local Assets #
+################
+_assets
 
 # Pantheon No-No Files #
 # This path is reserved for the CMS filesystem and
