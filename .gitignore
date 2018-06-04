@@ -73,3 +73,7 @@ sites/default/files
 wp-content/uploads
 web/sites/default/files
 web/wp-content/uploads
+
+# htaccess #
+# This wasn't ignored by default, but it seems like it should be
+.htaccess
