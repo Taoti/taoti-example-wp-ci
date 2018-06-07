@@ -10,13 +10,11 @@ function jp_scripts(){
 		wp_deregister_script('jquery');
 		// wp_enqueue_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js', array(), '3.3.1', true);
 
-		// Localize the JS directory so that the fallback jQuery file can be loaded if needed. See js/development/libs/_jquery-fallback.js
+		// Main Scripts (this file is concatenated from the files inside of js/development/ )
+		wp_enqueue_script('scripts', get_template_directory_uri().'/js/scripts.min.js', array(), filemtime( get_template_directory().'/js/scripts.min.js' ), true);
 		// wp_localize_script( 'jquery', 'jp_js', array(
 		// 	'path' => get_template_directory_uri().'/js',
 		// ) );
-
-		// Main Scripts (this file is concatenated from the files inside of js/development/ )
-		wp_enqueue_script('scripts', get_template_directory_uri().'/js/scripts.min.js', array('jquery'), filemtime( get_template_directory().'/js/scripts.min.js' ), true);
 
 	}
 }

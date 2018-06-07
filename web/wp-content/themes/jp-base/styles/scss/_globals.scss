@@ -39,12 +39,12 @@
 
 @mixin button-action() {
     @include button();
-    background-color: $action;
+    background-color: $link;
     border: none;
     color: $invert;
 
     &:hover {
-        background-color: $complement-1;
+        background-color: $hover;
     }
 
 }

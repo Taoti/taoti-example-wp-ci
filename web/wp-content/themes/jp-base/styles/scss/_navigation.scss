@@ -56,10 +56,7 @@
 .menu-main-navigation > .menu-item-has-children {
 
     > .sub-menu {
-        background-color: $primary-0;
         right: -1em;
-        // min-width: 300px;
-        // padding: 1em;
         width: calc(200% + 2em);
 
         > li {
@@ -96,8 +93,7 @@
 
     > .sub-menu {
         margin-bottom: 1em;
-        right: 100%;//calc(100% + 1em);
-        background-color: $primary-3;
+        right: 100%;
         padding: 1em 1.5em;
         list-style: none;
         top: 0;
@@ -110,9 +106,6 @@
             width: 0;
             position: absolute;
             z-index: 2;
-            border-left: 1em solid $primary-3;
-            border-top: 1em solid transparent;
-            border-bottom: 1em solid transparent;
             top: .5em;
             right: -1em;
         }
