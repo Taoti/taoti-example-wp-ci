@@ -199,23 +199,38 @@ class Get
 			'size' => 'medium',
 			'classes' => [],
 			'id' => false,
+			'placeholder' => get_template_directory_uri().'/images/placeholder.gif',
 		];
 
 		extract( array_merge($defaults, $args) );
 
+		if( !in_array('lazyload', $classes) ){
+			$classes[] = 'lazyload';
+		}
+
 		$return = false;
 
-		if( is_array($image_array) && isset($image_array['sizes'][$size]) ){
-			$src = $image_array['sizes'][$size];
-			$width = $image_array['sizes'][$size.'-width'];
-			$height = $image_array['sizes'][$size.'-height'];
+		if( is_array($image_array) ){
+
+			if( isset($image_array['sizes'][$size]) ){
+				$src = $image_array['sizes'][$size];
+				$width = $image_array['sizes'][$size.'-width'];
+				$height = $image_array['sizes'][$size.'-height'];
+
+			} elseif( $size === 'full' ){
+				$src = $image_array['url'];
+				$width = $image_array['width'];
+				$height = $image_array['height'];
+
+			}
+
 			$alt = $image_array['alt'];
 
 			$class_att = ($classes)? ' class="'.implode(' ', $classes).'"' : '';
 
 			$id_att = ($id)? ' id="'.$id.'"' : '';
 
-			$html = '<img'.$id_att.$class_att.' src="'.$src.'" width="'.$width.'" height="'.$height.'" alt="'.$alt.'">';
+			$html = '<img'.$id_att.$class_att.' data-src="'.$src.'" src="'.$placeholder.'" width="'.$width.'" height="'.$height.'" alt="'.$alt.'">';
 
 			$return = $html;
 
