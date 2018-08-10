@@ -3,8 +3,8 @@
 /*
  * This file is part of Twig.
  *
- * (c) 2010 Fabien Potencier
- * (c) 2010 Arnaud Le Blanc
+ * (c) Fabien Potencier
+ * (c) Arnaud Le Blanc
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -61,12 +61,12 @@ class Twig_TokenParserBroker implements Twig_TokenParserBrokerInterface
         }
     }
 
-    public function addTokenParserBroker(Twig_TokenParserBroker $broker)
+    public function addTokenParserBroker(self $broker)
     {
         $this->brokers[] = $broker;
     }
 
-    public function removeTokenParserBroker(Twig_TokenParserBroker $broker)
+    public function removeTokenParserBroker(self $broker)
     {
         if (false !== $pos = array_search($broker, $this->brokers)) {
             unset($this->brokers[$pos]);

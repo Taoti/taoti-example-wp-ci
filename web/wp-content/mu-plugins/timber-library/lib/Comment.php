@@ -130,6 +130,13 @@ class Comment extends Core implements CoreInterface {
 		}
 
 		$email = $this->avatar_email();
+		
+		$args = array('size' => $size, 'default' => $default);
+		$args = apply_filters('pre_get_avatar_data', $args, $email);
+		if ( isset($args['url']) ) {
+			return $args['url'];
+		}
+		
 		$email_hash = '';
 		if ( !empty($email) ) {
 			$email_hash = md5(strtolower(trim($email)));
@@ -149,7 +156,7 @@ class Comment extends Core implements CoreInterface {
 	 * @return string
 	 */
 	public function content() {
-		return apply_filters('get_comment_text ', $this->comment_content);
+		return trim(apply_filters('comment_text', $this->comment_content));
 	}
 
 	/**
@@ -323,7 +330,7 @@ class Comment extends Core implements CoreInterface {
 			'add_below' => 'comment',
 			'respond_id' => 'respond',
 			'reply_text' => $reply_text,
-			'depth' => 1,
+			'depth' => $this->depth() + 1,
 			'max_depth' => $max_depth,
 		);
 

@@ -23,8 +23,8 @@ class Admin {
 			unset($links[2]);
 			$links[] = '<a href="/wp-admin/plugin-install.php?tab=plugin-information&amp;plugin=timber-library&amp;TB_iframe=true&amp;width=600&amp;height=550" class="thickbox" aria-label="More information about Timber" data-title="Timber">View details</a>';
 			$links[] = '<a href="http://upstatement.com/timber" target="_blank">Homepage</a>';
-			$links[] = '<a href="https://github.com/timber/timber/wiki" target="_blank">Documentation</a>';
-			$links[] = '<a href="https://github.com/timber/timber/wiki/getting-started" target="_blank">Starter Guide</a>';
+			$links[] = '<a href="https://timber.github.io/docs/" target="_blank">Documentation</a>';
+			$links[] = '<a href="https://timber.github.io/docs/getting-started/setup/" target="_blank">Starter Guide</a>';
 			return $links;
 		}
 		return $links;
@@ -49,7 +49,7 @@ class Admin {
 
 			<br><strong>Is your theme in active development?</strong> That is, is someone actively in PHP files writing new code? If you answered "no", then <i>do not upgrade</i>. You will not benefit from Timber 1.0<br>';
 
-		$m .= '<br>Read the <strong><a href="https://github.com/timber/timber/wiki/1.0-Upgrade-Guide">Upgrade Guide</a></strong> for more information<br>';
+		$m .= '<br>Read the <strong><a href="https://timber.github.io/docs/upgrade-guides/1.0/">Upgrade Guide</a></strong> for more information<br>';
 
 		$m .= "<br>You can also <b><a href='https://downloads.wordpress.org/plugin/timber-library.0.22.6.zip'>upgrade to version 0.22.6</a></b> if you want to upgrade, but are unsure if you're ready for 1.0<br>";
 		$m .= self::disable_update();
@@ -71,7 +71,7 @@ class Admin {
 	 *	@codeCoverageIgnore
 	 */
 	protected static function update_message_minor() {
-		$m = "<br><b>Warning:</b> This new version of Timber introduces some new features which might have unknown effects on your site. We have automated tests to help us catch potential issues, but nothing is 100%. You're likley safe to upgrade, but do so very carefully and only if you have an experienced WordPress developer available to help you debug potential issues.";
+		$m = "<br><b>Warning:</b> This new version of Timber introduces some new features which might have unknown effects on your site. We have automated tests to help us catch potential issues, but nothing is 100%. You're likely safe to upgrade, but do so very carefully and only if you have an experienced WordPress developer available to help you debug potential issues.";
 		return $m;
 	}
 
