@@ -233,7 +233,7 @@ class Get
 			$sizes_att = wp_get_attachment_image_sizes( $image_array['ID'], $size );
 			$srcset_att = wp_get_attachment_image_srcset( $image_array['ID'], $size );
 
-			$html = '<img'.$id_att.$class_att.' data-src="'.$src.'" src="'.$placeholder.'" width="'.$width.'" height="'.$height.'" alt="'.$alt.'" sizes="'.$sizes_att.'" srcset="'.$srcset_att.'">';
+			$html = '<img'.$id_att.$class_att.' data-src="'.$src.'" src="'.$placeholder.'" width="'.$width.'" height="'.$height.'" alt="'.$alt.'" data-sizes="'.$sizes_att.'" data-srcset="'.$srcset_att.'">';
 
 			$return = $html;
 
