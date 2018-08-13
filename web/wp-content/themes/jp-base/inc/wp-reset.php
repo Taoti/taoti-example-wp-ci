@@ -100,11 +100,7 @@ add_filter( 'wpseo_metabox_prio', function(){return 'low';} );
 
 
 ### SVG in media uploader
-function cc_mime_types( $mimes ){
-  $mimes['svg'] = 'image/svg+xml';
-  return $mimes;
-}
-add_filter('upload_mimes', 'cc_mime_types');
+// You should now use the "Safe SVG" plugin
 
 
 
@@ -286,3 +282,146 @@ function jp_deregister_scripts(){
   wp_deregister_script( 'wp-embed' );
 }
 add_action( 'wp_enqueue_scripts', 'jp_deregister_scripts' );
+
+
+
+
+
+/**
+ * Filters the output of 'wp_calculate_image_sizes()'. Use this to tweak the value of the 'sizes' attribute on images.
+ *
+ * @since 4.4.0
+ *
+ * @param string       $sizes         A source size value for use in a 'sizes' attribute.
+ * @param array|string $size          Requested size. Image size or array of width and height values in pixels (in that order).
+ * @param string|null  $image_src     The URL to the image file or null.
+ * @param array|null   $image_meta    The image meta data as returned by wp_get_attachment_metadata() or null.
+ * @param int          $attachment_id Image attachment ID of the original image or 0.
+ */
+function taoti_tweak_image_sizes($sizes, $size, $image_src, $image_meta, $attachment_id){
+
+	// See what the arguments for this filter look like; example of this output is below.
+	// $args = [
+	// 	'sizes' => $sizes,
+	// 	'size' => $size,
+	// 	'image_src' => $image_src,
+	// 	'image_meta' => $image_meta,
+	// 	'attachment_id' => $attachment_id,
+	// ];
+	// echo "<pre>"; print_r($args); echo "</pre>";
+	// die('');
+
+	if( isset($image_meta['sizes']['medium_large']) ){
+		$sizes = '(max-width: 768px) 768px, '.$sizes;
+	}
+
+	// Sample of a custom image size being added:
+	// if( isset($image_meta['sizes']['small-feature']) ){
+	// 	$sizes = '(max-width: 490px) 490px, '.$sizes;
+	// }
+
+	return $sizes;
+}
+add_filter( 'wp_calculate_image_sizes', 'taoti_tweak_image_sizes', 10, 5);
+
+/*
+// EXAMPLE of the arguments that are passed to the 'wp_calculate_image_sizes' filter.
+Array
+(
+    [sizes] => (max-width: 827px) 100vw, 827px
+    [size] => Array
+        (
+            [0] => 827
+            [1] => 1121
+        )
+
+    [image_src] => http://localhost:8888/taoti-19/web/wp-content/uploads/2018/07/cyclists-hero.png
+    [image_meta] => Array
+        (
+            [width] => 827
+            [height] => 1121
+            [file] => 2018/07/cyclists-hero.png
+            [sizes] => Array
+                (
+                    [thumbnail] => Array
+                        (
+                            [file] => cyclists-hero-150x150.png
+                            [width] => 150
+                            [height] => 150
+                            [mime-type] => image/png
+                        )
+
+                    [medium] => Array
+                        (
+                            [file] => cyclists-hero-221x300.png
+                            [width] => 221
+                            [height] => 300
+                            [mime-type] => image/png
+                        )
+
+                    [medium_large] => Array
+                        (
+                            [file] => cyclists-hero-768x1041.png
+                            [width] => 768
+                            [height] => 1041
+                            [mime-type] => image/png
+                        )
+
+                    [large] => Array
+                        (
+                            [file] => cyclists-hero-755x1024.png
+                            [width] => 755
+                            [height] => 1024
+                            [mime-type] => image/png
+                        )
+
+                    [720p] => Array
+                        (
+                            [file] => cyclists-hero-827x720.png
+                            [width] => 827
+                            [height] => 720
+                            [mime-type] => image/png
+                        )
+
+                    [small-feature] => Array
+                        (
+                            [file] => cyclists-hero-490x490.png
+                            [width] => 490
+                            [height] => 490
+                            [mime-type] => image/png
+                        )
+
+                    [large-feature] => Array
+                        (
+                            [file] => cyclists-hero-827x910.png
+                            [width] => 827
+                            [height] => 910
+                            [mime-type] => image/png
+                        )
+
+                )
+
+            [image_meta] => Array
+                (
+                    [aperture] => 0
+                    [credit] =>
+                    [camera] =>
+                    [caption] =>
+                    [created_timestamp] => 0
+                    [copyright] =>
+                    [focal_length] => 0
+                    [iso] => 0
+                    [shutter_speed] => 0
+                    [title] =>
+                    [orientation] => 0
+                    [keywords] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [attachment_id] => 146
+)
+*/
