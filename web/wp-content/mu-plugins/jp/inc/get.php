@@ -212,6 +212,10 @@ class Get
 
 		if( is_array($image_array) ){
 
+			$src = '';
+			$width = '';
+			$height = '';
+
 			if( isset($image_array['sizes'][$size]) ){
 				$src = $image_array['sizes'][$size];
 				$width = $image_array['sizes'][$size.'-width'];
@@ -224,18 +228,22 @@ class Get
 
 			}
 
-			$alt = $image_array['alt'];
+			if( $src ){
 
-			$class_att = ($classes)? ' class="'.implode(' ', $classes).'"' : '';
+				$alt = $image_array['alt'];
 
-			$id_att = ($id)? ' id="'.$id.'"' : '';
+				$class_att = ($classes)? ' class="'.implode(' ', $classes).'"' : '';
 
-			$sizes_att = wp_get_attachment_image_sizes( $image_array['ID'], $size );
-			$srcset_att = wp_get_attachment_image_srcset( $image_array['ID'], $size );
+				$id_att = ($id)? ' id="'.$id.'"' : '';
 
-			$html = '<img'.$id_att.$class_att.' data-src="'.$src.'" src="'.$placeholder.'" width="'.$width.'" height="'.$height.'" alt="'.$alt.'" data-sizes="'.$sizes_att.'" data-srcset="'.$srcset_att.'">';
+				$sizes_att = wp_get_attachment_image_sizes( $image_array['ID'], $size );
+				$srcset_att = wp_get_attachment_image_srcset( $image_array['ID'], $size );
 
-			$return = $html;
+				$html = '<img'.$id_att.$class_att.' data-src="'.$src.'" src="'.$placeholder.'" width="'.$width.'" height="'.$height.'" alt="'.$alt.'" data-sizes="'.$sizes_att.'" data-srcset="'.$srcset_att.'">';
+
+				$return = $html;
+
+			}
 
 		}
 
