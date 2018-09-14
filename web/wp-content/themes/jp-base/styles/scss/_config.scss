@@ -1,14 +1,21 @@
-// Sizes
+// Any SASS variables you'll need throughout the project go here.
+// This file should not output anything, just include it as a library in other files - so do not add regular CSS rules here.
+
+//##### Sizes
 $base-font-size: 16px;
 $ratio: 1.414;
 $max-width: 1200px;
 $max-width-text: 50em;
 
-// Fonts
+//##### Fonts
 $sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 $serif: Georgia, serif;
 
-// Colors
+
+//##### Cubic Bezier
+$bounce: cubic-bezier(0, 0.86, 0.46, 1.24);
+
+//##### Colors
 $color-1: #ff00ff;
 $color-2: #ffff00;
 $color-3: #00ffff;
@@ -18,6 +25,9 @@ $invert: #fff;
 
 $link: $color-1;
 $hover: $color-2;
+
+$success: #398f14;
+$error: red;
 
 
 

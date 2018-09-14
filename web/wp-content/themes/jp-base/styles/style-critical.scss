@@ -1,5 +1,7 @@
 // Libraries
+// (these should not contain anything that actually outputs to a CSS file, so just stuff like variables and mixins)
 @import 'scss/config';
+@import 'scss/globals';
 
 // Reset
 @import 'scss/reset';

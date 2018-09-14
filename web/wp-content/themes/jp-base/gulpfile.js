@@ -12,7 +12,7 @@ var gulp = require( 'gulp' ),
 	sass = require( 'gulp-ruby-sass' ),
 	autoprefixer = require('gulp-autoprefixer'),
 	concat = require('gulp-concat'),
-	imagemin = require('gulp-imagemin'),
+	image = require('gulp-image'),
 	sourcemaps = require('gulp-sourcemaps'),
 	newer = require('gulp-newer');
 
@@ -34,52 +34,35 @@ function jpProcessCSS(args){
 		.pipe( autoprefixer(['last 4 versions', 'iOS 7']) )
 		.pipe( cleanCSS() )
 		.pipe( rename({suffix: '.min' }) )
-		.pipe( sourcemaps.write() )
-		.pipe( gulp.dest( themePath + 'styles/css/' ) )
-		.pipe( notify({ message: args.messageComplete }) );
+		// .pipe( sourcemaps.write() )
+		.pipe( gulp.dest( args.destination ) )
+		.pipe( notify({ message: args.messageComplete + ' <%= file.relative %>' }) );
 }
 
-// Bundle the critical CSS files.
-gulp.task('scss-critical', function () {
+// All the main SCSS files that will be compiled into styles/css/
+gulp.task('scss', function () {
 	var args = {
-		path: themePath + 'styles/style-critical.scss',
-		messageComplete: 'Critical SCSS task complete.'
+		path: [
+			themePath + 'styles/scss/admin/style-tinymce.scss', // TinyMCE WYSIWYG editor.
+			themePath + 'styles/scss/admin/style-login.scss', // the login page
+			themePath + 'styles/scss/admin/style-admin.scss', // the WP Dashboard
+			themePath + 'styles/style-noncritical.scss', // noncritical CSS files
+			themePath + 'styles/style-critical.scss', // critical CSS files
+		],
+		messageComplete: 'Scss task complete for',
+		destination: themePath + 'styles/css/'
 	};
 	return jpProcessCSS(args);
 });
 
-// Bundle the noncritical CSS files.
-gulp.task('scss-noncritical', function () {
+// Further SASS files that need to be loaded as critical CSS, but they only get loaded on specific templates.
+gulp.task('scss-other-criticals', function () {
 	var args = {
-		path: themePath + 'styles/style-noncritical.scss',
-		messageComplete: 'Noncritical SCSS task complete.'
-	};
-	return jpProcessCSS(args);
-});
-
-// Bundle styles to be used on the Dashboard.
-gulp.task('scss-admin', function () {
-	var args = {
-		path: themePath + 'styles/scss/admin/style-admin.scss',
-		messageComplete: 'Scss-admin task complete.'
-	};
-	return jpProcessCSS(args);
-});
-
-// Bundle styles for the login page.
-gulp.task('scss-login', function () {
-	var args = {
-		path: themePath + 'styles/scss/admin/style-login.scss',
-		messageComplete: 'Scss-login task complete.'
-	};
-	return jpProcessCSS(args);
-});
-
-// Bundle styles for the TinyMCE WYSIWYG editor.
-gulp.task('scss-tinymce', function () {
-	var args = {
-		path: themePath + 'styles/scss/admin/style-tinymce.scss',
-		messageComplete: 'Scss-tinymce task complete.'
+		path: [
+			themePath + 'styles/scss/critical/*.scss',
+		],
+		messageComplete: 'Scss task complete.',
+		destination: themePath + 'styles/css/critical/'
 	};
 	return jpProcessCSS(args);
 });
@@ -111,7 +94,18 @@ gulp.task('scripts', function() {
 gulp.task('images', function() {
 	return gulp.src(themePath + 'images/uncompressed/*')
 		.pipe(newer(themePath + 'images'))
-		.pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
+		.pipe(image({
+			pngquant: true,
+			optipng: false,
+			zopflipng: true,
+			jpegRecompress: false,
+			mozjpeg: true,
+			guetzli: false,
+			gifsicle: true,
+			svgo: true,
+			concurrent: 10,
+			quiet: true // defaults to false
+	    }))
 		.pipe(gulp.dest(themePath + 'images'))
 		.pipe(notify({ message: 'Images task complete' }));
 });
@@ -123,32 +117,38 @@ gulp.task( 'watch', function() {
 		[
 			themePath + 'styles/*.scss',
 			themePath + 'styles/scss/*.scss',
-			themePath + 'modules/*/scss/*.scss'
+			themePath + 'modules/*/scss/**/*.scss',
+			themePath + 'styles/scss/admin/*.scss',
 		],
-		[
-			'scss-critical',
-			'scss-noncritical'
-		]
+		[ 'scss', 'scss-other-criticals' ] // Sometimes there are critical scss files in the modules directory, so they will trigger this watch block. Hence, run the 'scss-other-criticals' here as well.
 	);
 
-	gulp.watch( themePath + 'styles/scss/admin/style-admin.scss', ['scss-admin'] );
-
-	gulp.watch( themePath + 'styles/scss/admin/style-login.scss', ['scss-login'] );
-
-	gulp.watch( themePath + 'styles/scss/admin/style-tinymce.scss', ['scss-tinymce'] );
+	gulp.watch(
+		[ themePath + 'styles/scss/critical/*.scss' ],
+		[ 'scss-other-criticals' ]
+	);
 
 	// Watch all .scss files
-	// gulp.watch( themePath + '**/**/*.scss', [ 'scss-critical', 'scss-noncritical', 'scss-admin', 'scss-login', 'scss-tinymce' ] );
+	// gulp.watch( themePath + '**/**/*.scss', [ 'scss' ] );
 
 	// Watch js files
-	gulp.watch( [themePath + 'js/development/**/*.js', themePath + 'modules/*/js/*.js'], [ 'scripts' ] );
+	gulp.watch(
+		[
+			themePath + 'js/development/**/*.js',
+			themePath + 'modules/*/js/*.js'
+		],
+		[ 'scripts' ]
+	);
 
 	// Watch img Files
-	gulp.watch( themePath + 'images/uncompressed/**', [ 'images' ] );
+	gulp.watch(
+		[ themePath + 'images/uncompressed/**' ],
+		[ 'images' ]
+	);
 
 });
 
 
 // Default task -- runs scss and watch functions
-gulp.task( 'default', ['images', 'scripts', 'scss-critical', 'scss-noncritical', 'scss-admin', 'scss-login', 'scss-tinymce', 'watch'], function() {
+gulp.task( 'default', ['images', 'scripts', 'scss', 'scss-other-criticals', 'watch'], function() {
 });

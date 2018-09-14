@@ -1,8 +1,10 @@
 // Libraries
 @import 'scss/config';
+@import 'scss/globals';
+
+@import 'scss/animations';
 
 // Globals ( any classes or elements that are commonly used, like .button or .icon )
-@import 'scss/globals';
 @import 'scss/entry-content';
 @import 'scss/footer';
 @import 'scss/front-page';

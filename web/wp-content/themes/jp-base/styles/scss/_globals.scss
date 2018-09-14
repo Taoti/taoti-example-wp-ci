@@ -1,3 +1,6 @@
+// Mixins that can be used globally go here.
+// This file should not output anything, just include it as a library in other files - so do not add regular CSS rules here.
+
 @mixin button() {
     background-color: transparent;
     border-radius: .25em;
