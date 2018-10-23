@@ -12,7 +12,9 @@ function jp_scripts(){
 
 		// Main Scripts (this file is concatenated from the files inside of js/development/ )
 		wp_enqueue_script('scripts', get_template_directory_uri().'/js/scripts.min.js', array(), filemtime( get_template_directory().'/js/scripts.min.js' ), true);
-		// wp_localize_script( 'jquery', 'jp_js', array(
+
+		// wp_localize_script( 'scripts', 'jp_js', array(
+		// 	'ajax_url' => admin_url('admin-ajax.php'),
 		// 	'path' => get_template_directory_uri().'/js',
 		// ) );
 
