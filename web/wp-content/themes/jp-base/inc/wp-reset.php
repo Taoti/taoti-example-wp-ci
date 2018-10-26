@@ -91,6 +91,27 @@ add_action( 'admin_menu', 'jp_remove_menus' );
 
 
 
+### Disable comments (won't work for existing comments)
+// https://tommcfarlin.com/disable-comments-programmatically/
+function jp_disable_all_comments_and_pings() {
+
+	// Turn off comments
+	if( '' != get_option( 'default_ping_status' ) ){
+		update_option( 'default_ping_status', '' );
+	}
+
+	// Turn off pings
+	if( '' != get_option( 'default_comment_status' ) ){
+		update_option( 'default_comment_status', '' );
+	}
+
+} // end jp_disable_all_comments_and_pings
+add_action( 'after_setup_theme', 'jp_disable_all_comments_and_pings' );
+
+
+
+
+
 ### Move the SEO By Yoast plugin's meta box to a lower priority so it appears at the bottom of Edit screens.
 // https://wordpress.org/support/topic/plugin-wordpress-seo-by-yoast-position-seo-meta-box-priority-above-custom-meta-boxes
 add_filter( 'wpseo_metabox_prio', function(){return 'low';} );
@@ -425,3 +446,28 @@ Array
     [attachment_id] => 146
 )
 */
+
+
+
+
+
+### Use Paste As Text by default in the editor
+// @link https://anythinggraphic.net/paste-as-text-by-default-in-wordpress
+function ag_tinymce_paste_as_text( $init ) {
+	$init['paste_as_text'] = true;
+	return $init;
+}
+add_filter('tiny_mce_before_init', 'ag_tinymce_paste_as_text');
+
+
+
+
+
+### Remove the inline styles from .wp-video <div>s
+function taoti_remove_excess_video_attributes($output, $atts, $video, $post_id, $library){
+	$style_attribute_pattern = '/ style="[^\"]*"/';
+	$filtered_output = preg_replace( $style_attribute_pattern, '', $output );
+
+	return $filtered_output;
+}
+add_filter( 'wp_video_shortcode', 'taoti_remove_excess_video_attributes', 10, 5 );
