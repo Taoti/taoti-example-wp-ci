@@ -9,12 +9,14 @@ var gulp = require( 'gulp' ),
 	uglify = require( 'gulp-uglify' ),
 	rename = require( 'gulp-rename' ),
 	notify = require( 'gulp-notify' ),
-	sass = require( 'gulp-ruby-sass' ),
 	autoprefixer = require('gulp-autoprefixer'),
 	concat = require('gulp-concat'),
 	image = require('gulp-image'),
 	sourcemaps = require('gulp-sourcemaps'),
-	newer = require('gulp-newer');
+	newer = require('gulp-newer'),
+	sass = require('gulp-sass');
+
+sass.compiler = require('node-sass');
 
 // Error Handling
 var onError = function( err ) {
@@ -28,15 +30,17 @@ var onError = function( err ) {
 // path (string) is the path to the .scss file.
 // messageComplete (string) is the message you want to display in the terminal when the task is complete.
 function jpProcessCSS(args){
-	return sass( args.path )
-		.on( 'error', sass.logError )
-		.pipe( sourcemaps.init() )
+
+	return gulp.src( args.path )
+	    .pipe( sass().on('error', sass.logError) )
+		// 	.pipe( sourcemaps.init() )
 		.pipe( autoprefixer(['last 4 versions', 'iOS 7']) )
 		.pipe( cleanCSS() )
 		.pipe( rename({suffix: '.min' }) )
 		// .pipe( sourcemaps.write() )
-		.pipe( gulp.dest( args.destination ) )
+	    .pipe( gulp.dest( args.destination ) )
 		.pipe( notify({ message: args.messageComplete + ' <%= file.relative %>' }) );
+
 }
 
 // All the main SCSS files that will be compiled into styles/css/
