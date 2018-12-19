@@ -13,3 +13,8 @@ require WPMU_PLUGIN_DIR.'/advanced-custom-fields-pro/acf.php';
 require WPMU_PLUGIN_DIR.'/timber-library/timber.php';
 require WPMU_PLUGIN_DIR.'/wp-redis/wp-redis.php';
 require WPMU_PLUGIN_DIR.'/pantheon-advanced-page-cache/pantheon-advanced-page-cache.php';
+
+// Load project specific mu-plugins. The file mu-loader-custom.php is ignored by git.
+if( file_exists(WPMU_PLUGIN_DIR.'/mu-loader-custom.php') ){
+    WPMU_PLUGIN_DIR.'/mu-loader-custom.php';
+}
