@@ -77,7 +77,3 @@ web/wp-content/uploads
 # htaccess #
 # This wasn't ignored by default, but it seems like it should be
 .htaccess
-
-# Site-specific mu-plugin loader #
-##################################
-mu-loader-custom.php
