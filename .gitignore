@@ -58,6 +58,12 @@ Thumbs.db
 ##########
 .sass-cache
 
+
+
+##########################
+### START CUSTOM RULES ###
+##########################
+
 # NPM #
 ##########
 node_modules
