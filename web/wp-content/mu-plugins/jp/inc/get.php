@@ -134,7 +134,7 @@ class Get
 	public static function featured_image_array( $post_ID=false, $use_fallback=false ){
 		$return = false;
 
-        if( $post_ID===false ){
+        if( $post_ID===false && isset($post->ID) ){
             global $post;
             $post_ID = $post->ID;
         }
