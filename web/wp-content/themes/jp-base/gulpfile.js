@@ -1,6 +1,7 @@
+// Just run `gulp` - it will compile everything and start the watch module.
 
 // Config for theme
-var themePath = '';
+var themePath = './';
 
 // Gulp Nodes
 var gulp = require( 'gulp' ),
@@ -124,12 +125,12 @@ gulp.task( 'watch', function() {
 			themePath + 'modules/*/scss/**/*.scss',
 			themePath + 'styles/scss/admin/*.scss',
 		],
-		[ 'scss', 'scss-other-criticals' ] // Sometimes there are critical scss files in the modules directory, so they will trigger this watch block. Hence, run the 'scss-other-criticals' here as well.
+		gulp.series([ 'scss', 'scss-other-criticals' ]) // Sometimes there are critical scss files in the modules directory, so they will trigger this watch block. Hence, run the 'scss-other-criticals' here as well.
 	);
 
 	gulp.watch(
 		[ themePath + 'styles/scss/critical/*.scss' ],
-		[ 'scss-other-criticals' ]
+		gulp.series([ 'scss-other-criticals' ])
 	);
 
 	// Watch all .scss files
@@ -141,18 +142,18 @@ gulp.task( 'watch', function() {
 			themePath + 'js/development/**/*.js',
 			themePath + 'modules/*/js/*.js'
 		],
-		[ 'scripts' ]
+		gulp.series([ 'scripts' ])
 	);
 
 	// Watch img Files
 	gulp.watch(
 		[ themePath + 'images/uncompressed/**' ],
-		[ 'images' ]
+		gulp.series([ 'images' ])
 	);
 
 });
 
 
 // Default task -- runs scss and watch functions
-gulp.task( 'default', ['images', 'scripts', 'scss', 'scss-other-criticals', 'watch'], function() {
+gulp.task( 'default', gulp.series(['images', 'scripts', 'scss', 'scss-other-criticals', 'watch']), function() {
 });

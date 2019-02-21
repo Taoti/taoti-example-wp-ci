@@ -1,7 +1,7 @@
 {
   "name": "jp-wordpress",
   "repository": "none",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Set up for the base WordPress theme.",
   "main": "gulpfile.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "author": "James Pfleiderer",
   "license": "ISC",
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-clean-css": "^3.9.3",
     "gulp-concat": "^2.6.0",
