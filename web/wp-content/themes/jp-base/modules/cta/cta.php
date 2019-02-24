@@ -24,7 +24,6 @@ class CTA {
 			'button_label' => false,
 			'classes' => [
 				'l-module',
-				'l-container',
 				'cta',
 			]
 		];

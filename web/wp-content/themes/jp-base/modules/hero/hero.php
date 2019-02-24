@@ -24,7 +24,6 @@ class Hero {
 			'button_label' => false,
 			'classes' => [
 				'l-module',
-				'l-container',
 				'hero',
 			]
 		];
