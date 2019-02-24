@@ -1,7 +1,4 @@
 .entry-content {
-	line-height: 1.4;
-	color: #717171;
-	margin: 0 auto;
 	max-width: $max-width-text;
 
 	&:empty {
@@ -11,15 +8,10 @@
 	h1, h2, h3, h4, h5, h6 {
 		margin-bottom: 1rem;
 		line-height: 1;
-        color: #000;
 
 	    &:not(:first-child) {
 	        margin-top: 1.4em;
 	    }
-
-        span {
-        	color: #000 !important;
-        }
 	}
 
 	strong {

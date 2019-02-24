@@ -10,9 +10,11 @@
 @import 'scss/front-page';
 // @import 'scss/single';
 
-// Modules ( anything shared cross template )
-@import 'scss/modules';
+// Modules
 // @import '../modules/cta/scss/cta';
+
+// Parts, utility, other one-offs
+// @import 'scss/pagination';
 
 // Templates ( template-name - including media queries. You can override base module styles here too )
 // @import 'scss/template-careers';
