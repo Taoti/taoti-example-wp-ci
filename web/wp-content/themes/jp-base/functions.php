@@ -17,7 +17,6 @@ if( defined('WP_DEBUG') && WP_DEBUG ){
 
 
 ### Function includes
-include 'inc/acf/_temp.php';
 include 'inc/acf/acf.php';
 include 'inc/wp-reset.php';
 include 'inc/post-types.php';

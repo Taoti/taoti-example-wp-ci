@@ -1,6 +1,6 @@
 <?php
 ### Remove some default widgets, including some from Jetpack, Constant Contact, and others.
-function unregister_default_widgets(){
+function jp_unregister_default_widgets(){
 	unregister_widget('WP_Widget_Pages');
 	unregister_widget('WP_Widget_Calendar');
 	unregister_widget('WP_Widget_Archives');
@@ -30,7 +30,7 @@ function unregister_default_widgets(){
 	unregister_widget( 'constant_contact_api_widget' );
 	unregister_widget( 'bcn_widget' );
 }
-add_action('widgets_init', 'unregister_default_widgets', 11);
+add_action('widgets_init', 'jp_unregister_default_widgets', 11);
 
 
 
@@ -52,10 +52,10 @@ add_action( 'after_setup_theme', 'jp_theme_setup' );
 
 
 ### Remove tags support from posts
-function myprefix_unregister_tags(){
+function jp_unregister_tags(){
     unregister_taxonomy_for_object_type('post_tag', 'post');
 }
-//add_action('init', 'myprefix_unregister_tags');
+//add_action('init', 'jp_unregister_tags');
 
 
 
@@ -130,12 +130,12 @@ add_filter( 'wpseo_metabox_prio', function(){return 'low';} );
 ### Taxonomy term order
 // Prevents the taxonomy checkbox lists from reordering themselves when one or more terms are checked.
 // http://stackoverflow.com/questions/4830913/wordpress-category-list-order-in-post-edit-page
-function taxonomy_checklist_checked_ontop_filter ( $args ){
+function jp_taxonomy_checklist_checked_ontop_filter ( $args ){
     $args['checked_ontop'] = false;
     return $args;
 
 }
-add_filter('wp_terms_checklist_args','taxonomy_checklist_checked_ontop_filter');
+add_filter('wp_terms_checklist_args','jp_taxonomy_checklist_checked_ontop_filter');
 
 
 
@@ -225,7 +225,7 @@ add_filter('acf/validate_value/type=url', 'jp_acf_validate_url', 20, 4);
 
 
 ### Remove the inline styles from .wp-caption <div>s
-function fixed_img_caption_shortcode( $attr, $content=null ){
+function jp_fixed_img_caption_shortcode( $attr, $content=null ){
     if (! isset($attr['caption'])) {
         if (preg_match('#((?:<a [^>]+>\s*)?<img [^>]+>(?:\s*</a>)?)(.*)#is', $content, $matches)) {
         $content = $matches[1];
@@ -251,8 +251,8 @@ function fixed_img_caption_shortcode( $attr, $content=null ){
 
     return '<div ' . $id . 'class="wp-caption ' . esc_attr($align) . '">' . do_shortcode($content) . '<p>' . $caption . '</p></div>';
 }
-add_shortcode('wp_caption', 'fixed_img_caption_shortcode');
-add_shortcode('caption', 'fixed_img_caption_shortcode');
+add_shortcode('wp_caption', 'jp_fixed_img_caption_shortcode');
+add_shortcode('caption', 'jp_fixed_img_caption_shortcode');
 
 
 
