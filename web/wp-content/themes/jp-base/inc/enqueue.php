@@ -29,16 +29,7 @@ add_action('wp_enqueue_scripts','jp_scripts');
 ### Main Stylsheet - Set up critical and non critical CSS.
 // Now loaded in the <head> so critical and noncritical CSS can be loaded seperately. The standard enqueue functions don't support this sort of thing yet.
 function jp_styles(){
-
-	### Critical CSS
-	// Load the critical CSS as inline CSS.
-    $critical_css = file_get_contents( get_template_directory().'/styles/css/style-critical.min.css' );
-    if($critical_css):
-    ?>
-    <style><?php echo $critical_css; ?></style>
-    <?php endif; ?>
-
-    <?php
+	
 	### Noncritical CSS
     // Set up the URL to the non-critical CSS file with a version number for cache-busting.
     $css_filemtime = filemtime( get_template_directory().'/styles/css/style-noncritical.min.css' );

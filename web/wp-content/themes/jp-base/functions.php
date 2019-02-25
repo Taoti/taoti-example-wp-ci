@@ -25,6 +25,7 @@ include 'inc/helpers.php';
 include 'inc/globals.php';
 include 'inc/database.php';
 include 'inc/walkers.php';
+include 'inc/enqueue-critical-css.php';
 include 'inc/enqueue.php';
 include 'inc/image-sizes.php';
 include 'inc/shortcodes.php';

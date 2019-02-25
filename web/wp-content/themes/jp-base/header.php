@@ -3,7 +3,15 @@
 <head>
     <?php
     // Use js/development/after-libs/web-font-loader.js to load fonts.
+    ?>
+
+    <?php
+    // Common prefetches
     // <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    // <link rel="dns-prefetch" href="https://ajax.googleapis.com">
+    // <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    // <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    // <link rel="dns-prefetch" href="https://use.typekit.net">
     ?>
 
     <meta charset="<?php bloginfo( 'charset' ); ?>">

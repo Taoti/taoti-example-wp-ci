@@ -1,20 +1,25 @@
 <?php
 // use Modules\CTA;
 
+
+### Critical CSS for the main archive template
+// taoti_enqueue_critical_css( get_template_directory().'/styles/css/critical/index-critical.min.css' );
+
+
 get_header();
 ?>
 
 
 
-<div class="l-container content">
-    <div class="l-text-column content-inner">
+<div class="archiveContent">
+    <div class="l-container archiveContent-inner">
 
     <?php if( have_posts() ): ?>
 
         <?php while( have_posts() ): the_post(); ?>
 
     		<h2><?php the_title(); ?></h2>
-    		<div><?php the_content(); ?></div>
+    		<div><?php the_excerpt(); ?></div>
 
         <?php endwhile; ?>
 
@@ -24,8 +29,8 @@ get_header();
 
     <?php endif; ?>
 
-    </div><!-- END .content-inner -->
-</div><!-- END .content -->
+    </div><!-- END .archiveContent-inner -->
+</div><!-- END .archiveContent -->
 
 
 
