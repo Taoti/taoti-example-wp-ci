@@ -189,7 +189,7 @@ function jp_search_by_title_only( $search, $wp_query ){
 	return $search;
 
 }
-if( is_admin() ){
+if( is_admin() && !wp_doing_ajax() ){
 	add_filter('posts_search', __NAMESPACE__ . '\\jp_search_by_title_only', 500, 2);
 }
 
