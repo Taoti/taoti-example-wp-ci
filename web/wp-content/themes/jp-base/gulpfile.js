@@ -36,7 +36,7 @@ function jpProcessCSS(args){
 	    .pipe( sass().on('error', sass.logError) )
 		// 	.pipe( sourcemaps.init() )
 		.pipe( autoprefixer(['last 4 versions', 'iOS 7']) )
-		.pipe( cleanCSS() )
+		.pipe( cleanCSS({rebase:false}) )
 		.pipe( rename({suffix: '.min' }) )
 		// .pipe( sourcemaps.write() )
 	    .pipe( gulp.dest( args.destination ) )
