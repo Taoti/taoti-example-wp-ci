@@ -1,32 +1,25 @@
 .entry-content {
-	max-width: $max-width-text;
 
 	&:empty {
 		display: none;
 	}
 
-	h1, h2, h3, h4, h5, h6 {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		line-height: 1.25;
 		margin-bottom: 1rem;
-		line-height: 1;
-
-	    &:not(:first-child) {
-	        margin-top: 1.4em;
-	    }
-	}
-
-	strong {
-		font-weight: bold;
-	}
-
-	em {
-		font-style: italic;
 	}
 
 	p {
 		margin-bottom: 1.4em;
 	}
 
-	ol, ul {
+	ol,
+	ul {
 		margin-bottom: 1.4em;
 		padding-left: 1.4em;
 	}
@@ -34,6 +27,7 @@
 	ol {
 		list-style-type: decimal;
 		margin-left: 1.4em;
+		padding-left: .5em;
 	}
 
 	ul {
@@ -47,19 +41,17 @@
 	}
 
 	hr {
-		height: 2px;
 		background: #eee;
-		margin: 2em 0;
-		border: none;
 		border-bottom: 1px solid #ddd;
+		border: none;
+		height: 2px;
+		margin: 2em 0;
 	}
 
-	ol {
-		padding-left: .5em;
-	}
-
-	/* Alignment */
-	.alignleft, .alignright, .aligncenter {
+	// Alignment
+	.alignleft,
+	.alignright,
+	.aligncenter {
 		@media screen and ( max-width: 600px ) {
 			float: none !important;
 			display: block !important;
@@ -86,116 +78,122 @@
 	}
 
 
-	/* Text meant only for screen readers */
+	// Text meant only for screen readers
 	.assistive-text {
-	    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
 	    clip: rect(1px, 1px, 1px, 1px);
 	    position: absolute !important;
 	}
 
 
-	/* =Media
-	----------------------------------------------- */
+	// =Media
+	// -----------------------------------------------
 
-	.site-header img,
-	.entry-content img,
-	.comment-content img,
-	.widget img {
-	    max-width: 100%; /* Fluid images for posts, comments, and widgets */
-	}
-	.site-header img,
-	.entry-content img,
-	img[class*="align"],
-	img[class*="wp-image-"] {
-	    height: auto; /* Make sure images with WordPress-added height and width attributes are scaled correctly */
-	}
-	.site-header img,
-	.entry-content img,
-	img.size-full {
-	    max-width: 100%;
-	    width: auto; /* Prevent stretching of full-size images with height and width attributes in IE8 */
-	}
-	.entry-content img.wp-smiley,
-	.comment-content img.wp-smiley {
+	.wp-smiley {
 	    border: none;
 	    margin-bottom: 0;
 	    margin-top: 0;
 	    padding: 0;
 	}
+
 	.wp-caption {
 		border: none;
-	    max-width: 100%;
-	    font-size: trem(15px);
 	    color: #969697;
+	    font-size: trem(15px);
 	    margin-bottom: 0;
+	    max-width: 100%;
+
+		&.aligncenter,
+		&.alignleft,
+		&.alignright {
+		    margin-bottom: 0;
+		}
+
+		img {
+		    display: block;
+		    margin: 1.2% auto 0;
+		    max-width: 98%;
+		}
+
+		.wp-caption-text {
+		    margin: 0.8075em 0 0;
+		}
+
 	}
-	.wp-caption.aligncenter,
-	.wp-caption.alignleft,
-	.wp-caption.alignright {
-	    margin-bottom: 0;
-	}
-	.wp-caption img {
-	    display: block;
-	    margin: 1.2% auto 0;
-	    max-width: 98%;
-	}
+
 	.wp-caption-text {
 	    text-align: center;
 	}
-	.wp-caption .wp-caption-text {
-	    margin: 0.8075em 0 0;
-	}
-	.site-content .gallery {
+
+	.gallery {
 	    margin-bottom: 1.4em;
-	}
-	.gallery-caption {
-	}
-	.site-content .gallery a img {
-	    border: none;
-	    height: auto;
-	    max-width: 90%;
-	}
-	.site-content .gallery dd {
-	    margin: 0;
+
+		a img {
+		    border: none;
+		    height: auto;
+		    max-width: 90%;
+		}
+
+		dd {
+		    margin: 0;
+		}
+
 	}
 
-	/* Make sure embeds and iframes fit their containers */
+	.gallery-caption {
+
+	}
+
+	// Make sure embeds and iframes fit their containers
 	embed,
 	iframe,
 	object {
 	    max-width: 100%;
 	}
+
 	table {
-		color: #333;
-		width: 100%;
-		border-collapse:
-		collapse; border-spacing: 0;
+		border-collapse: collapse;
+		border-spacing: 0;
+		color: $text;
 		margin: 1em 0;
+		width: 100%;
 	}
 
-	td, th {
-		border: 1px solid transparent; /* No more visible border */
+	td,
+	th {
+		border: 1px solid transparent; // No more visible border
 		height: 3em;
-		transition: all 0.3s;  /* Simple transition for hover effect */
+		transition: background 250ms, color 250ms;  // Simple transition for hover effect
 		vertical-align: middle;
 	}
 
 	th {
-		background: #DFDFDF;  /* Darken header a bit */
+		background: darken( $invert, 25% );  // Darken header a bit
 		font-weight: bold;
 	}
 
 	td {
-		background: #FAFAFA;
+		background: darken( $invert, 7.5% );
 		text-align: center;
 	}
 
-		/* Cells in even rows (2,4,6...) are one color */
-	tr:nth-child(even) td { background: #F1F1F1; }
 
-	/* Cells in odd rows (1,3,5...) are another (excludes header cells)  */
-	tr:nth-child(odd) td { background: #FEFEFE; }
+	tr {
 
-	tr td:hover { background: #666; color: #FFF; } /* Hover cell effect! */
+		// Cells in even rows are one color
+		&:nth-child(even) td {
+			background: darken( $invert, 7.5% );
+		}
+
+		// Cells in odd rows are another
+		&:nth-child(odd) td {
+			background: darken( $invert, 15% );
+		}
+
+		td:hover {
+			background: $text;
+			color: $invert;
+		}
+
+	}
 
 }
