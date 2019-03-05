@@ -1,4 +1,7 @@
-@import '../config.scss';
+// Libraries
+// (these should not contain anything that actually outputs to a CSS file, so just stuff like variables and mixins)
+@import '../config';
+@import '../globals';
 
 /*
 ### This file lists out a bunch of different selectors you can use to style something on the login screen.

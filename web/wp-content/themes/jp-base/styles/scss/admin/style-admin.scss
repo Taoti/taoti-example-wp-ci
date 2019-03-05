@@ -1,4 +1,7 @@
-@import '../config.scss';
+// Libraries
+// (these should not contain anything that actually outputs to a CSS file, so just stuff like variables and mixins)
+@import '../config';
+@import '../globals';
 
 
 
