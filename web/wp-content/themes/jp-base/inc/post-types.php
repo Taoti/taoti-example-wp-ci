@@ -31,8 +31,9 @@ function jp_register_post_types() {
 
 		*/
 
+		// Comment out or change this example:
 		[
-			'slug' => 'product', // Lowercase letters, dashes only
+			'slug' => 'products', // Lowercase letters, dashes only. Probably should be plural.
 			'singular' => 'Product', // Capitalized, something like 'Product' or 'Staff Member'
 			'plural' => 'Products (REPLACE ME)', // Capitalized, something like 'Products' or 'Staff Members'
 			'register_args' => [ // Explained above.
@@ -62,13 +63,11 @@ function jp_register_post_types() {
 
 		$final_args['labels'] = $labels;
 
-		// Just do it
+		// Finally register the post type.
 		register_post_type( $slug, $final_args );
 	}
 
 }
-
-// Hook into the 'init' action
 add_action( 'init', 'jp_register_post_types', 0 );
 
 
@@ -96,23 +95,23 @@ function jp_generate_label_array( $args = [] ){
 	$plural_lowercase = strtolower( $plural );
 
 	$labels = array(
-		'name' => $plural,  //- general name for the post type, usually plural. The same and overridden by $post_type_object->label. Default is Posts/Pages
-		'singular_name' => $singular, //  name for one object of this post type. Default is Post/Page
-		'add_new' => _x('Add New', $slug), //  the add new text. The default is "Add New" for both hierarchical and non-hierarchical post types.
-		'add_new_item' => 'Add New ' . $singular, //  Default is Add New Post/Add New Page.
-		'edit_item' => 'Edit ' . $singular, 'base', //  Default is Edit Post/Edit Page.
-		'new_item' => 'New ' . $singular, 'base', //  Default is New Post/New Page.
-		'view_item' => 'View ' . $singular, 'base', //  Default is View Post/View Page.
-		'view_items' => 'View ' . $plural, 'base', //  Label for viewing post type archives. Default is 'View Posts' / 'View Pages'.
-		'search_items' => 'Search ' . $plural, 'base', //  Default is Search Posts/Search Pages.
-		'not_found' => 'No ' . $plural_lowercase . ' found.', 'base', //  Default is No posts found/No pages found.
-		'not_found_in_trash' => 'No ' . $plural_lowercase . ' replaces found in Trash.', 'base', //  Default is No posts found in Trash/No pages found in Trash.
-		'parent_item_colon' => 'Parent ' . $singular . ':', 'base', //  This string isn't used on non-hierarchical types. In hierarchical ones the default is 'Parent Page:'.
-		'all_items' => 'All ' . $plural, 'base', //  String for the submenu. Default is All Posts/All Pages.
-		'archives' => $singular . ' Archives', 'base', //  String for use with archives in nav menus. Default is Post Archives/Page Archives.
-		'attributes' => $singular . ' Attributes', 'base', //  Label for the attributes meta box. Default is 'Post Attributes' / 'Page Attributes'.
-		'insert_into_item' => 'Insert into ' . $singular . '.', 'base', //  String for the media frame button. Default is Insert into post/Insert into page.
-		'uploaded_to_this_item' => 'Uploaded to this ' . $singular . '.',
+		'name' => $plural,
+		'singular_name' => $singular,
+		'add_new' => _x('Add New', 'add new post or page', 'base'),
+		'add_new_item' => sprintf( _x( 'Add New %s', 'referring to a post/page', 'base' ), $singular ),
+		'edit_item' => sprintf( _x( 'Edit %s', 'referring to a post/page', 'base' ), $singular ),
+		'new_item' => sprintf( _x( 'New %s', 'referring to a post/page', 'base' ), $singular ),
+		'view_item' => sprintf( _x( 'View %s', 'referring to a post/page', 'base' ), $singular ),
+		'view_items' => sprintf( _x( 'View %s', 'referring to posts/pages', 'base' ), $plural ),
+		'search_items' => sprintf( _x( 'Search %s', 'referring to posts/pages', 'base' ), $plural ),
+		'not_found' => sprintf( _x( 'No %s found', 'referring to posts/pages', 'base' ), $plural_lowercase ),
+		'not_found_in_trash' => sprintf( _x( 'No %s found in Trash.', 'referring to posts/pages', 'base' ), $plural_lowercase ),
+		'parent_item_colon' => sprintf( _x( 'Parent %s:', 'referring to a post/page', 'base' ), $singular ),
+		'all_items' => sprintf( _x( 'All %s', 'referring to posts/pages', 'base' ), $plural ),
+		'archives' => sprintf( _x( '%s Archives', 'referring to posts/pages', 'base' ), $singular ),
+		'attributes' => sprintf( _x( '%s Attributes', 'referring to posts/pages', 'base' ), $singular ),
+		'insert_into_item' => sprintf( _x( 'Insert into %s.', 'referring to a post/page', 'base' ), $singular ),
+		'uploaded_to_this_item' => sprintf( _x( 'Uploaded to this %s.', 'referring to a post/page', 'base' ), $singular ),
     );
 
 	return $labels;
