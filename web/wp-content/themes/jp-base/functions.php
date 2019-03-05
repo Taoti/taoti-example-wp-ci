@@ -1,20 +1,4 @@
 <?php
-### Errors
-if( defined('WP_DEBUG') && WP_DEBUG ){
-// if( $_SERVER['SERVER_NAME']==='localhost' ){
-    ini_set('display_startup_errors', '1');
-    ini_set('display_errors', '1');
-    error_reporting(E_ALL);
-
-} else {
-    ini_set('display_startup_errors', '0');
-    ini_set('display_errors', '0');
-    error_reporting(0);
-
-}
-
-
-
 
 ### Function includes
 include 'inc/acf/acf.php';
@@ -39,7 +23,8 @@ include 'inc/tinyMCE/tinymce.styles.php';
 include 'inc/tinyMCE/tinymce.toolbars.php';
 include 'inc/tinyMCE/tinymce.customizations.php';
 
-
-
 ### Modules
 include 'inc/modules.php';
+
+### Page Builder (flex content)
+include 'flex-content/flex-content.php';
