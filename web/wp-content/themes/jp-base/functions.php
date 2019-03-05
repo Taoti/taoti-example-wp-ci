@@ -18,6 +18,7 @@ if( defined('WP_DEBUG') && WP_DEBUG ){
 
 ### Function includes
 include 'inc/acf/acf.php';
+include 'inc/acf/acf-json.php';
 include 'inc/wp-reset.php';
 include 'inc/post-types.php';
 include 'inc/taxonomies.php';
@@ -36,6 +37,7 @@ include 'inc/widgets.php';
 include 'inc/admin-bar.php';
 include 'inc/tinyMCE/tinymce.styles.php';
 include 'inc/tinyMCE/tinymce.toolbars.php';
+include 'inc/tinyMCE/tinymce.customizations.php';
 
 
 

@@ -3,7 +3,7 @@
 
 
 
-function jp_tiny_mce_edits( $args ){
+function jp_tinymce_custom_formats( $args ){
 	// Always show kitchen sink in WYSIWYG Editor.
 	$args['wordpress_adv_hidden'] = false;
 
@@ -12,7 +12,9 @@ function jp_tiny_mce_edits( $args ){
 
 	return $args;
 }
-add_filter( 'tiny_mce_before_init', 'jp_tiny_mce_edits' );
+add_filter( 'tiny_mce_before_init', 'jp_tinymce_custom_formats' );
+
+
 
 
 

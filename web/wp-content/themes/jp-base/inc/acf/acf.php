@@ -3,29 +3,24 @@
 
 
 
-### Set up the folder for ACF to save JSON files to. This is where the options will be stored.
-// https://www.advancedcustomfields.com/resources/local-json/
-function taoti_acf_json_load_point( $paths ) {
+### Filter into ACF to allow URL fields to accept strings that start with "tel:" as valid URLs.
+function jp_acf_validate_url( $valid, $value, $field, $input ){
 
-    // remove original path (optional)
-    unset($paths[0]);
+    // These are strings that a possible URL can start with and still be a valid URL. Otherwise it only accepts strings that start with 'http://' or 'https://'.
+    $valid_url_prefixes = [
+        'tel:', // Allow telephone links.
+        'mailto:', // Allow email links.
+        '#', // Allow jump/null links.
+    ];
 
-    // append path
-    $paths[] = get_stylesheet_directory() . '/inc/acf/json';
+    foreach( $valid_url_prefixes as $prefix ){
+        if( strpos($value, $prefix) === 0 ){
+            // If $value (the string value from the ACF field) starts with one of the prefixes defined above, then this is a valid URL.
+            $valid = true;
+        }
+    }
 
-    // return
-    return $paths;
-
-}
-add_filter('acf/settings/load_json', 'taoti_acf_json_load_point');
-
-function taoti_acf_json_save_point( $path ) {
-
-    // update path
-    $path = get_stylesheet_directory() . '/inc/acf/json';
-
-    // return
-    return $path;
+	return $valid;
 
 }
-add_filter('acf/settings/save_json', 'taoti_acf_json_save_point');
+add_filter('acf/validate_value/type=url', 'jp_acf_validate_url', 20, 4);

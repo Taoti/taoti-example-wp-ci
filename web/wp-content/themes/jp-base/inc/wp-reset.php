@@ -1,4 +1,17 @@
 <?php
+### Include various customizations/tweaks to WordPress here.
+### Like CSS Reset, but for WordPress.
+
+### Quality of life improvements for things like adding theme support for featured images, adding excerpts to pages, removing a bunch of useless widgets, and a bunch of stuff.
+
+### Add/remove/modify anything you need in here for your own theme (never modify anything in `jp-base`, it will cause git conflicts).
+
+### Note
+### Tweaks for ACF go in theme-folder/inc/acf/acf.php
+### Tweaks for TinyMCE go in theme-folder/inc/tinyMCE/{{3 different files}}
+
+
+
 ### Remove some default widgets, including some from Jetpack, Constant Contact, and others.
 function jp_unregister_default_widgets(){
 	unregister_widget('WP_Widget_Pages');
@@ -61,20 +74,6 @@ function jp_unregister_tags(){
 
 
 
-### Make image links default to "none"
-// You know how when you add an image in TinyMCE and it defaults to linking to the original size or to its attachment page? Well this makes it default to having no link.
-function wpb_imagelink_setup(){
-	$image_set = get_option( 'image_default_link_type' );
-	if ($image_set !== 'none') {
-		update_option('image_default_link_type', 'none');
-	}
-}
-add_action('admin_init', 'wpb_imagelink_setup', 10);
-
-
-
-
-
 ### Remove dashboard menus
 function jp_remove_menus(){
 
@@ -91,37 +90,9 @@ add_action( 'admin_menu', 'jp_remove_menus' );
 
 
 
-### Disable comments (won't work for existing comments)
-// https://tommcfarlin.com/disable-comments-programmatically/
-function jp_disable_all_comments_and_pings() {
-
-	// Turn off comments
-	if( '' != get_option( 'default_ping_status' ) ){
-		update_option( 'default_ping_status', '' );
-	}
-
-	// Turn off pings
-	if( '' != get_option( 'default_comment_status' ) ){
-		update_option( 'default_comment_status', '' );
-	}
-
-} // end jp_disable_all_comments_and_pings
-add_action( 'after_setup_theme', 'jp_disable_all_comments_and_pings' );
-
-
-
-
-
 ### Move the SEO By Yoast plugin's meta box to a lower priority so it appears at the bottom of Edit screens.
 // https://wordpress.org/support/topic/plugin-wordpress-seo-by-yoast-position-seo-meta-box-priority-above-custom-meta-boxes
 add_filter( 'wpseo_metabox_prio', function(){return 'low';} );
-
-
-
-
-
-### SVG in media uploader
-// You should now use the "Safe SVG" plugin
 
 
 
@@ -192,67 +163,6 @@ function jp_search_by_title_only( $search, $wp_query ){
 if( is_admin() && !wp_doing_ajax() ){
 	add_filter('posts_search', __NAMESPACE__ . '\\jp_search_by_title_only', 500, 2);
 }
-
-
-
-
-
-### Filter into ACF to allow URL fields to accept strings that start with "tel:" as valid URLs.
-// Notet that this currently does not work with checking if '#' is the first character in $value. I think the default browser validation is preventing this from working, so will need to figure out a JS solution for that.
-function jp_acf_validate_url( $valid, $value, $field, $input ){
-	// echo "<pre>"; var_dump($valid); echo "</pre>";
-
-	// bail early if value is already invalid
-	if(!$valid) {
-		return $valid;
-	}
-
-	// echo "<pre>"; var_dump($value); echo "</pre>";
-	// echo "<pre>"; var_dump($field); echo "</pre>";
-	// echo "<pre>"; var_dump($input); echo "</pre>";
-
-	if( strpos($value, 'tel:')===0 || strpos($value, '#')===0 ){
-		$valid = true;
-	}
-
-	return $valid;
-
-}
-add_filter('acf/validate_value/type=url', 'jp_acf_validate_url', 20, 4);
-
-
-
-
-
-### Remove the inline styles from .wp-caption <div>s
-function jp_fixed_img_caption_shortcode( $attr, $content=null ){
-    if (! isset($attr['caption'])) {
-        if (preg_match('#((?:<a [^>]+>\s*)?<img [^>]+>(?:\s*</a>)?)(.*)#is', $content, $matches)) {
-        $content = $matches[1];
-        $attr['caption'] = trim($matches[2]);
-        }
-    }
-
-    $output = apply_filters('img_caption_shortcode', '', $attr, $content);
-    if ($output != '')
-    return $output;
-
-    extract(shortcode_atts(array(
-        'id' => '',
-        'align' => 'alignnone',
-        'width' => '',
-        'caption' => ''
-  ), $attr));
-
-    if (1 > (int) $width || empty($caption))
-    return $content;
-
-    if ($id) $id = 'id="' . esc_attr($id) . '" ';
-
-    return '<div ' . $id . 'class="wp-caption ' . esc_attr($align) . '">' . do_shortcode($content) . '<p>' . $caption . '</p></div>';
-}
-add_shortcode('wp_caption', 'jp_fixed_img_caption_shortcode');
-add_shortcode('caption', 'jp_fixed_img_caption_shortcode');
 
 
 
@@ -451,23 +361,13 @@ Array
 
 
 
-### Use Paste As Text by default in the editor
-// @link https://anythinggraphic.net/paste-as-text-by-default-in-wordpress
-function ag_tinymce_paste_as_text( $init ) {
-	$init['paste_as_text'] = true;
-	return $init;
-}
-add_filter('tiny_mce_before_init', 'ag_tinymce_paste_as_text');
+
+### Disable comments (won't work for existing comments)
+// You should now use the "Disable Comments" plugin.
 
 
 
 
 
-### Remove the inline styles from .wp-video <div>s
-function taoti_remove_excess_video_attributes($output, $atts, $video, $post_id, $library){
-	$style_attribute_pattern = '/ style="[^\"]*"/';
-	$filtered_output = preg_replace( $style_attribute_pattern, '', $output );
-
-	return $filtered_output;
-}
-add_filter( 'wp_video_shortcode', 'taoti_remove_excess_video_attributes', 10, 5 );
+### SVG in media uploader
+// You should now use the "Safe SVG" plugin
