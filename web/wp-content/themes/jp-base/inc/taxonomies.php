@@ -20,6 +20,8 @@ function jp_registers_taxonomies(){
 
 		The most common argument you might need for taxonomies is 'hierarchical'. `true` means there are parent/child relationships (like categories) and `false` is a flat structure (like tags).
 
+        If you don't need to add anything to the 'register_args' array, just leave it as an empty array.
+
 		*/
 
         // Comment out or change this example:
@@ -31,7 +33,7 @@ function jp_registers_taxonomies(){
                 'post',
                 'products',
             ],
-			'register_args' => [ // Explained above.
+			'register_args' => [ // Explained above. Leave as an empty array if not needed.
 				'hierarchical' => true,
 			],
 
