@@ -1,0 +1,32 @@
+#! /bin/bash
+# Get the filename for the module's folder/files.
+echo "Enter the module name (the lowercase/camelcase filename):"
+read module_name
+
+# Get the PHP Class name for defining the class.
+echo "Enter the PHP class name (camelcase but should start with uppercase):"
+read class_name
+
+# Make directories for the module files.
+mkdir -p "$module_name"/scss
+mkdir -p "$module_name"/js
+mkdir -p "$module_name"/views
+
+# Create the base files in those directories, they are blank for now.
+touch "$module_name"/"$module_name".php
+touch "$module_name"/scss/_"$module_name".scss
+touch "$module_name"/js/"$module_name".js
+touch "$module_name"/views/"$module_name".twig
+
+# Pull in the file contents from the PHP and twig template files, and insert that contents into the new module's main PHP file and twig file.
+cat ~/bash/template-module.php > "$module_name"/"$module_name".php
+cat ~/bash/template-module.twig > "$module_name"/views/"$module_name".twig
+
+# There are some placeholders in the templates. Replace those placeholders with the module's filename and Class name.
+# http://doejo.com/blog/terminal-tips-find-and-replace-with-sed/
+sed -i '' -e 's/{{ModuleFile}}/'"$module_name"'/g' "$module_name"/"$module_name".php
+sed -i '' -e 's/{{ModuleName}}/'"$class_name"'/g' "$module_name"/"$module_name".php
+sed -i '' -e 's/{{ModuleFile}}/'"$module_name"'/g' "$module_name"/views/"$module_name".twig
+
+# Notify in the terminal that the process is complete.
+echo "Module created: $module_name"

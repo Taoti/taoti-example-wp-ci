@@ -1,0 +1,19 @@
+{% block {{ModuleFile}} %}
+<div class="{{ classes }}">
+    <div class="l-container {{ModuleFile}}-inner">
+
+        {% if primary_heading %}
+		<h2 class="{{ModuleFile}}-primaryHeading">{{ primary_heading }}</h2>
+		{% endif %}
+
+		{% if description %}
+		<div class="{{ModuleFile}}-description">{{ description }}</div>
+	    {% endif %}
+
+		{% if button_url and button_label %}
+		<a class="{{ModuleFile}}-button" href="{{ button_url }}">{{ button_label }}</a>
+		{% endif %}
+
+    </div>
+</div>
+{% endblock %}
