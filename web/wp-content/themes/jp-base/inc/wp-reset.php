@@ -130,6 +130,14 @@ add_filter('excerpt_more', 'jp_new_excerpt_more');
 
 
 
+### Set a custom word length for excerpts.
+function jp_custom_excerpt_length( $length ) {
+	return 20;
+}
+add_filter( 'excerpt_length', 'jp_custom_excerpt_length', 999 );
+
+
+
 
 
 ### On the Dashboard, get searches to look in the post title only (exclude the post content from search).

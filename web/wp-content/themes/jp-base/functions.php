@@ -8,6 +8,7 @@ include 'inc/post-types.php';
 include 'inc/taxonomies.php';
 include 'inc/helpers.php';
 include 'inc/globals.php';
+include 'inc/excerpt.php';
 include 'inc/database.php';
 include 'inc/walkers.php';
 include 'inc/enqueue-critical-css.php';
