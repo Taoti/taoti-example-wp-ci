@@ -1,4 +1,4 @@
-// TODO: Replace all trem() functions, not just in this file but everywhere.
+// For text that gets output from a WYSIWYG.
 
 .entry-content {
 
@@ -100,7 +100,7 @@
 	.wp-caption {
 		border: none;
 	    color: #969697;
-	    font-size: trem(15px);
+	    font-size: 1.5rem;
 	    margin-bottom: 0;
 	    max-width: 100%;
 
