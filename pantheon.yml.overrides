@@ -1,4 +1,4 @@
-# Pantheon won't accept these Quicksilver hooks in the upstream's pantheon.upstream.yml file. When you deploy a new site using the upstream, remember to copy this file and rename it to pantheon.yml.
+# Pantheon won't accept these Quicksilver hooks in the upstream's pantheon.upstream.yml file. When you deploy a new site using the upstream, remember to add these lines to pantheon.yml.
 workflows:
   create_cloud_development_environment:
     after:
