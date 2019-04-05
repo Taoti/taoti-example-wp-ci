@@ -36,7 +36,7 @@ add_filter('tiny_mce_before_init', 'ag_tinymce_paste_as_text');
 
 
 ### Remove the inline styles from .wp-caption <div>s
-function jp_fixed_img_caption_shortcode( $attr, $content=null ){
+function fixed_img_caption_shortcode( $attr, $content=null ){
     if (! isset($attr['caption'])) {
         if (preg_match('#((?:<a [^>]+>\s*)?<img [^>]+>(?:\s*</a>)?)(.*)#is', $content, $matches)) {
         $content = $matches[1];
@@ -60,10 +60,10 @@ function jp_fixed_img_caption_shortcode( $attr, $content=null ){
 
     if ($id) $id = 'id="' . esc_attr($id) . '" ';
 
-    return '<div ' . $id . 'class="wp-caption ' . esc_attr($align) . '">' . do_shortcode($content) . '<p>' . $caption . '</p></div>';
+    return '<div ' . $id . 'class="wp-caption ' . esc_attr($align) . '" style="max-width:'.$width.'px">' . do_shortcode($content) . '<p>' . $caption . '</p></div>';
 }
-add_shortcode('wp_caption', 'jp_fixed_img_caption_shortcode');
-add_shortcode('caption', 'jp_fixed_img_caption_shortcode');
+add_shortcode('wp_caption', 'fixed_img_caption_shortcode');
+add_shortcode('caption', 'fixed_img_caption_shortcode');
 
 
 
