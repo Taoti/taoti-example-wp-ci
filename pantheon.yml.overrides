@@ -1,4 +1,5 @@
 # Pantheon won't accept these Quicksilver hooks in the upstream's pantheon.upstream.yml file. When you deploy a new site using the upstream, remember to add these lines to pantheon.yml.
+api_version: 1
 workflows:
   deploy_product:
     after:
