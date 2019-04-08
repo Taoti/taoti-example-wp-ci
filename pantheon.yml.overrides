@@ -1,5 +1,10 @@
 # Pantheon won't accept these Quicksilver hooks in the upstream's pantheon.upstream.yml file. When you deploy a new site using the upstream, remember to add these lines to pantheon.yml.
 workflows:
+  deploy_product:
+    after:
+        - type: webphp
+          description: Post to Slack after site creation
+          script: web/private/scripts/slack_notification.php
   create_cloud_development_environment:
     after:
         - type: webphp
