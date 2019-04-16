@@ -29,7 +29,7 @@ add_action('wp_enqueue_scripts','jp_scripts');
 ### Main Stylsheet - Set up critical and non critical CSS.
 // Now loaded in the <head> so critical and noncritical CSS can be loaded seperately. The standard enqueue functions don't support this sort of thing yet.
 function jp_styles(){
-	
+
 	### Noncritical CSS
     // Set up the URL to the non-critical CSS file with a version number for cache-busting.
     $css_filemtime = filemtime( get_template_directory().'/styles/css/style-noncritical.min.css' );
@@ -54,20 +54,20 @@ add_action('jp_css', 'jp_styles');
 ### Admin area stuff
 function jp_admin_theme_style() {
 	// CSS for admin
-    wp_enqueue_style('admin-theme', get_template_directory_uri().'/css/admin/style-admin.min.css', array(), filemtime( get_template_directory().'/css/admin/style-admin.min.css' ) );
+    wp_enqueue_style('admin-theme', get_template_directory_uri().'/styles/css/style-admin.min.css', array(), filemtime( get_template_directory().'/styles/css/style-admin.min.css' ) );
 }
 // add_action('admin_enqueue_scripts', 'jp_admin_theme_style');
 
 ### Login screen stuff
 function jp_login_stylesheet() {
 	// CSS for login screen
-	wp_enqueue_style('login-theme', get_template_directory_uri().'/css/admin/style-login.min.css', array(), filemtime( get_template_directory().'/css/admin/style-login.min.css' ) );
+	wp_enqueue_style('login-theme', get_template_directory_uri().'/styles/css/style-login.min.css', array(), filemtime( get_template_directory().'/styles/css/style-login.min.css' ) );
 }
 // add_action( 'login_enqueue_scripts', 'jp_login_stylesheet' );
 
 ### Post content editor (TinyMCE)
 function jp_tinymce_style() {
 	// CSS for admin
-    add_editor_style( get_template_directory_uri().'/css/admin/style-tinymce.min.css', array(), filemtime( get_template_directory().'/css/admin/style-tinymce.min.css' ) );
+    add_editor_style( get_template_directory_uri().'/styles/css/style-tinymce.min.css', array(), filemtime( get_template_directory().'/styles/css/style-tinymce.min.css' ) );
 }
 // add_action('admin_init', 'jp_tinymce_style');
