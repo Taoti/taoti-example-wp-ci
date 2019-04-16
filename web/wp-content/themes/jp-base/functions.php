@@ -24,6 +24,7 @@ include 'inc/admin-bar.php';
 include 'inc/tinyMCE/tinymce.styles.php';
 include 'inc/tinyMCE/tinymce.toolbars.php';
 include 'inc/tinyMCE/tinymce.customizations.php';
+include 'inc/user-roles.php';
 
 ### Modules
 include 'inc/modules.php';
