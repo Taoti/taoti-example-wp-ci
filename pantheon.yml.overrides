@@ -1,34 +1,34 @@
-# Pantheon won't accept these Quicksilver hooks in the upstream's pantheon.upstream.yml file. When you deploy a new site using the upstream, remember to add these lines to pantheon.yml.
+# Pantheon won't accept these Quicksilver hooks in the upstream's pantheon.upstream.yml file. When you deploy a new site using the upstream, remember to add these lines to a new pantheon.yml file. Don't just rename this file because further updates from the upstream will override it.
 api_version: 1
 workflows:
   deploy_product:
     after:
         - type: webphp
           description: Post to Slack after site creation
-          script: web/private/scripts/slack_notification.php
+          script: private/scripts/slack_notification.php
   create_cloud_development_environment:
     after:
         - type: webphp
           description: Post to Slack after Multidev creation
-          script: web/private/scripts/slack_notification.php
+          script: private/scripts/slack_notification.php
   deploy:
     after:
         - type: webphp
           description: Post to Slack after deploy
-          script: web/private/scripts/slack_notification.php
+          script: private/scripts/slack_notification.php
   sync_code:
     after:
         - type: webphp
           description: Clear WP cache after code commit
-          script: web/private/scripts/clear_cache_wp.php
+          script: private/scripts/clear_cache_wp.php
         - type: webphp
           description: Clear Pantheon cache after code commit
-          script: web/private/scripts/clear_cache_wp_pantheon.php
+          script: private/scripts/clear_cache_wp_pantheon.php
         - type: webphp
           description: Post to Slack after code commit
-          script: web/private/scripts/slack_notification.php
+          script: private/scripts/slack_notification.php
   clear_cache:
     after:
         - type: webphp
           description: Someone is clearing the cache again
-          script: web/private/scripts/slack_notification.php
+          script: private/scripts/slack_notification.php
