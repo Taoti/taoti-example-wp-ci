@@ -115,11 +115,11 @@ endif;
 
 /** Standard wp-config.php stuff from here on down. **/
 
-// https://pantheon.io/docs/http-to-https/
+// https://pantheon.io/docs/http-to-https/#redirect-to-https-and-the-primary-domain 
 if (isset($_ENV['PANTHEON_ENVIRONMENT']) && php_sapi_name() != 'cli') {
   // Redirect to https://$primary_domain in the Live environment
   if ($_ENV['PANTHEON_ENVIRONMENT'] === 'live') {
-    /** Replace www.example.com with your registered domain name */
+    // Replace www.example.com with your registered domain name.
     $primary_domain = 'www.example.com';
   }
   else {
@@ -131,7 +131,7 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT']) && php_sapi_name() != 'cli') {
       || !isset($_SERVER['HTTP_USER_AGENT_HTTPS'])
       || $_SERVER['HTTP_USER_AGENT_HTTPS'] != 'ON' ) {
 
-    # Name transaction "redirect" in New Relic for improved reporting (optional)
+    // Name transaction "redirect" in New Relic for improved reporting (optional).
     if (extension_loaded('newrelic')) {
       newrelic_name_transaction("redirect");
     }

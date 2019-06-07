@@ -1,0 +1,37 @@
+{
+  "name": "acf-better-search",
+  "description": "ACF: Better Search",
+  "license": "GPL-2.0+",
+  "author": {
+    "name": "Mateusz Gbiorczyk",
+    "email": "mateusz@gbiorczyk.pl",
+    "url": "https://gbiorczyk.pl/"
+  },
+  "main": "webpack.mix.js",
+  "scripts": {
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "dev": "npm run development",
+    "watch": "npm run development -- --watch",
+    "prod": "npm run production"
+  },
+  "browserslist": [
+    "chrome 60",
+    "firefox 55",
+    "safari 10",
+    "edge 15",
+    "ie 11"
+  ],
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "css-mqpacker": "^7.0.0",
+    "fs": "0.0.1-security",
+    "laravel-mix": "^4.0.15",
+    "path": "^0.12.7",
+    "resolve-url-loader": "^2.3.1",
+    "sass": "^1.17.4",
+    "sass-loader": "^7.1.0",
+    "sort-css-media-queries": "^1.4.3",
+    "vue-template-compiler": "^2.6.10"
+  }
+}
