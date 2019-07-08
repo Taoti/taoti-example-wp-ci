@@ -13,7 +13,7 @@
  * @since   Timber 0.1
  */
 
-$context = Timber::context();
+$context = Timber::get_context();
 $context['posts'] = new Timber\PostQuery();
 $context['foo'] = 'bar';
 $templates = array( 'index.twig' );

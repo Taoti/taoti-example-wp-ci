@@ -11,5 +11,5 @@
  * @since   Timber 0.1
  */
 
-$GLOBALS['timberContext'] = Timber::context();
+$GLOBALS['timberContext'] = Timber::get_context();
 ob_start();
