@@ -1,5 +1,5 @@
-export default class Notice {
-
+export default class Notice
+{
   constructor()
   {
     if (!this.setVars()) return;
@@ -14,8 +14,7 @@ export default class Notice {
 
     this.settings = {
       isHidden: false,
-      actionName: 'acf_better_search_notice',
-      ajaxUrl: window.acfbsAjaxUrl,
+      ajaxUrl: this.notice.getAttribute('data-url'),
     };
 
     return true;
@@ -29,7 +28,7 @@ export default class Notice {
   getButtons()
   {
     this.buttonClose       = this.notice.querySelector('.notice-dismiss');
-    this.buttonPermanently = this.notice.querySelector('.button[data-permanently]');
+    this.buttonPermanently = this.notice.querySelector('[data-permanently]');
     this.setButtonsEvents();
   }
 
@@ -52,7 +51,6 @@ export default class Notice {
     jQuery.ajax(this.settings.ajaxUrl, {
       type: 'POST',
       data: {
-        action: this.settings.actionName,
         is_permanently: isPermanently ? 1 : 0,
       },
     });

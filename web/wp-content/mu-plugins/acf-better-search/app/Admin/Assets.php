@@ -16,13 +16,13 @@
 
     public function loadStyles()
     {
-      wp_register_style('acf-better-search', ACFBS_HTTP . 'public/build/css/styles.css', '', ACFBS_VERSION);
+      wp_register_style('acf-better-search', ACFBS_URL . 'public/build/css/styles.css', '', ACFBS_VERSION);
       wp_enqueue_style('acf-better-search');
     }
 
     public function loadScripts()
     {
-      wp_register_script('acf-better-search', ACFBS_HTTP . 'public/build/js/scripts.js', 'jquery', ACFBS_VERSION, true);
+      wp_register_script('acf-better-search', ACFBS_URL . 'public/build/js/scripts.js', 'jquery', ACFBS_VERSION, true);
       wp_enqueue_script('acf-better-search');
     }
   }

@@ -1,10 +1,11 @@
-=== Plugin Name ===
+=== ACF: Better Search ===
 Contributors: mateuszgbiorczyk
 Donate link: https://www.paypal.me/mateuszgbiorczyk/
 Tags: acf, acf search, advanced custom fields, better search, search
 Requires at least: 4.7.0
-Tested up to: 5.1.0
-Stable tag: 3.2.0
+Tested up to: 5.2
+Requires PHP: 5.6
+Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -65,6 +66,13 @@ Advanced Custom Fields in version 5 (also free). ACF below version 5 has a diffe
 1. Screenshot of the options panel
 
 == Changelog ==
+
+= 3.3.1 =
+* Security changes
+
+= 3.3.0 =
+* New settings page
+* New admin notice
 
 = 3.2.0 =
 * Changes in plugin structure
@@ -142,3 +150,7 @@ Advanced Custom Fields in version 5 (also free). ACF below version 5 has a diffe
 
 = 1.0.0 =
 * The first stable release
+
+== Upgrade Notice ==
+
+None.

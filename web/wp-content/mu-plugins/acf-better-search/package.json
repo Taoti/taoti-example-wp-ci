@@ -22,16 +22,7 @@
     "edge 15",
     "ie 11"
   ],
-  "devDependencies": {
-    "cross-env": "^5.2.0",
-    "css-mqpacker": "^7.0.0",
-    "fs": "0.0.1-security",
-    "laravel-mix": "^4.0.15",
-    "path": "^0.12.7",
-    "resolve-url-loader": "^2.3.1",
-    "sass": "^1.17.4",
-    "sass-loader": "^7.1.0",
-    "sort-css-media-queries": "^1.4.3",
-    "vue-template-compiler": "^2.6.10"
+  "dependencies": {
+    "mati-mix": "^2.0.1"
   }
 }

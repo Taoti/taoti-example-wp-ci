@@ -6,19 +6,26 @@
   {
     public function __construct()
     {
-      $this->saveFieldsTypes();
-      $this->saveFeatures();
+      $this->initSaving();
     }
 
     /* ---
       Functions
     --- */
 
+    private function initSaving()
+    {
+      if (!isset($_REQUEST['_wpnonce']) || !wp_verify_nonce($_REQUEST['_wpnonce'], 'acfbs-save')) return;
+      $this->saveFieldsTypes();
+      $this->saveFeatures();
+    }
+
     private function saveFieldsTypes()
     {
       if (!isset($_POST['acfbs_save']) || get_option('acfbs_lite_mode', false)) return;
 
       $value = $_POST['acfbs_fields_types'] ? $_POST['acfbs_fields_types'] : [];
+      $value = array_map('sanitize_text_field', $value);
       $this->saveOption('acfbs_fields_types', $value);
     }
 
