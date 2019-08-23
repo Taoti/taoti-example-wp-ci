@@ -131,7 +131,7 @@ add_filter('excerpt_more', 'jp_new_excerpt_more');
 
 
 ### Set a custom word length for excerpts.
-function jp_custom_excerpt_length( $length ) {
+function jp_custom_excerpt_length() {
 	return 20;
 }
 add_filter( 'excerpt_length', 'jp_custom_excerpt_length', 999 );
