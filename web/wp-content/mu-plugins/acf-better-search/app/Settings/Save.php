@@ -25,7 +25,11 @@
       if (!isset($_POST['acfbs_save']) || get_option('acfbs_lite_mode', false)) return;
 
       $value = $_POST['acfbs_fields_types'] ? $_POST['acfbs_fields_types'] : [];
-      $value = array_map('sanitize_text_field', $value);
+      $types = apply_filters('acfbs_options_fields', []);
+
+      $value = array_filter($value, function($type) use ($types) {
+        return array_key_exists($type, $types);
+      });
       $this->saveOption('acfbs_fields_types', $value);
     }
 

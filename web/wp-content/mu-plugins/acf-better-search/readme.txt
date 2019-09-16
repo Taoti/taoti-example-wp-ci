@@ -3,7 +3,7 @@ Contributors: mateuszgbiorczyk
 Donate link: https://www.paypal.me/mateuszgbiorczyk/
 Tags: acf, acf search, advanced custom fields, better search, search
 Requires at least: 4.7.0
-Tested up to: 5.2
+Tested up to: 5.3
 Requires PHP: 5.6
 Stable tag: trunk
 License: GPLv2 or later
@@ -66,6 +66,12 @@ Advanced Custom Fields in version 5 (also free). ACF below version 5 has a diffe
 1. Screenshot of the options panel
 
 == Changelog ==
+
+= 3.4.0 =
+* New way to start search engine
+
+= 3.3.2 =
+* Validation for fields types on settings page
 
 = 3.3.1 =
 * Security changes
