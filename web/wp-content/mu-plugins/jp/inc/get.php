@@ -283,6 +283,20 @@ class Get
 
 		}
 
+		// If the image has the same dimensions as the crop size, need to return the full size since the cropped version won't exist.
+		if( !$return ){
+			$image_sizes = get_image_sizes();
+			if( isset($image_sizes[$size]) ){
+				$min_width = $image_sizes[$size]['width'];
+				$min_height = $image_sizes[$size]['height'];
+
+				if( intval($image_array['width']) >= intval($min_width) && intval($image_array['height']) >= intval($min_height) ){
+					$return = $image_array['url'];
+				}
+			}
+
+		}
+
 		return $return;
 
 	}
