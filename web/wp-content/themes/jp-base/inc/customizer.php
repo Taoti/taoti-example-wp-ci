@@ -64,6 +64,43 @@ function jp_customize_register_cb($wp_customize){
 
 
 
+    ### Section - 404 Page
+    $wp_customize->add_section( 'jp_section_404_page' , array(
+        'title' => __( '404 Page', 'jp' ),
+        'description' => 'Add a custom title and message to your 404 page.',
+        'priority' => 20,
+    ) );
+
+    // 404 page title
+    $wp_customize->add_setting( 'jp_404_page_title' , array(
+        'default'   => 'Not Found (404)',
+        'transport' => 'postMessage',
+    ) );
+
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'jp_404_page_title', array(
+    	'label' => __( 'Page Title', 'jp' ),
+    	'section' => 'jp_section_404_page',
+    	'settings' => 'jp_404_page_title',
+        'type' => 'text',
+        'description' => 'Set the main page title.',
+    ) ) );
+
+    // 404 page content
+    $wp_customize->add_setting( 'jp_404_content' , array(
+        'default'   => 'The content you were looking for could not be found.',
+        'transport' => 'postMessage',
+    ) );
+
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'jp_404_content', array(
+    	'label' => __( 'Message', 'jp' ),
+    	'section' => 'jp_section_404_page',
+    	'settings' => 'jp_404_content',
+        'type' => 'textarea',
+        'description' => 'Set the message that lets a user know what to do.',
+    ) ) );
+
+
+
     ### Remove default sections and panels
     $wp_customize->remove_section('title_tagline');
     $wp_customize->remove_section('colors');
@@ -77,3 +114,12 @@ function jp_customize_register_cb($wp_customize){
     return $wp_customize;
 }
 add_action( 'customize_register', 'jp_customize_register_cb' );
+
+
+
+
+
+function taoti_customizer_live_preview(){
+    wp_enqueue_script( 'taoti-themecustomizer', get_template_directory_uri().'/js/admin/theme-customizer.js', array( 'jquery','customize-preview' ), '1.0', true );
+}
+add_action( 'customize_preview_init', 'taoti_customizer_live_preview', 0, 99 );

@@ -7,7 +7,9 @@ function jp_scripts(){
 	if (!is_admin()) {
 
 		// Deregister WordPress jQuery and register Google's, only if you need jQuery.
-		wp_deregister_script('jquery');
+		if( !is_customize_preview() ){
+			wp_deregister_script('jquery');
+		}
 		// wp_enqueue_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js', array(), '3.3.1', true);
 
 		// Main Scripts (this file is concatenated from the files inside of js/development/ )
