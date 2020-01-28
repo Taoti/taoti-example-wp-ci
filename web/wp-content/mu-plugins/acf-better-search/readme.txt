@@ -1,8 +1,8 @@
 === ACF: Better Search ===
 Contributors: mateuszgbiorczyk
-Donate link: https://www.paypal.me/mateuszgbiorczyk/
+Donate link: https://ko-fi.com/gbiorczyk/
 Tags: acf, acf search, advanced custom fields, better search, search
-Requires at least: 4.7.0
+Requires at least: 5.0
 Tested up to: 5.3
 Requires PHP: 5.6
 Stable tag: trunk
@@ -19,7 +19,11 @@ Everything works automatically, no need to add any additional code.
 
 Additionally you can search for whole phrases instead of each single word of phrase. As a result, search will be more accurate than before.
 
-**New search core:** We modified the code of search engine. Content search is now faster by about 75% (depending on the level of complexity of searched phrase)!
+#### New search core
+
+We modified the code of search engine. Content search is now faster by about 75% *(depending on the level of complexity of searched phrase)*!
+
+#### Please also read the FAQ below. Thank you for being with us!
 
 == Installation ==
 
@@ -29,25 +33,25 @@ Additionally you can search for whole phrases instead of each single word of phr
 
 == Frequently Asked Questions ==
 
-= How does this work? =
+= What version of Advanced Custom Fields is supported? =
 
-Plugin changes all SQL queries by extending the standard search to selected fields of Advanced Custom Fields.
-
-= Where working advanced search? =
-
-It works for WP_Query class.
-
-= Do I need to add some arguments to my function to activate advanced search? =
-
-Everythings works automatically. For custom WP_Query loop and get_posts() function also if you add [Search Parameter](https://codex.wordpress.org/Class_Reference/WP_Query#Search_Parameter).
-
-= Whether the plugin works in the admin panel? =
-
-Yes. The plugin works same as for the search page.
+Advanced Custom Fields in version 5 *(also free)*. ACF below version 5 has a different data structure in database and is not supported.
 
 = In what fields does the plugin search? =
 
 Our plugin supports the following fields: Text, Text Area, Number, Email, Url, File, Wysiwyg Editor, Select, Checkbox and Radio Button. All these fields may be located in both the Repeater or Flexible Content field.
+
+= How does this work? =
+
+Plugin changes all SQL queries by extending the standard search to selected fields of Advanced Custom Fields.
+
+The plugin in admin panel works same as for the search page.
+
+It works for `WP_Query` class.
+
+= Do I need to add some arguments to my function to activate advanced search? =
+
+Everythings works automatically. For custom `WP_Query` loop and `get_posts()` function also if you add [Search Parameter](https://codex.wordpress.org/Class_Reference/WP_Query#Search_Parameter).
 
 = How does searching for whole phrases? =
 
@@ -57,9 +61,17 @@ The default search in WordPress is to search for each of words listed. This feat
 
 In this mode, the plugin does not check the field types. Phrases are searched in all ACF fields. Thanks to this, the query to the database is smaller and faster by about 25%. However, we do not have control over which fields are taken into account when searching.
 
-= What version of Advanced Custom Fields is supported? =
+= Is the plugin completely free? =
 
-Advanced Custom Fields in version 5 (also free). ACF below version 5 has a different data structure in database and is not supported.
+Yes. The plugin is completely free.
+
+However, working on plugins and technical support requires many hours of work. If you want to appreciate it, you can [provide us a coffee](https://ko-fi.com/gbiorczyk/). Thanks everyone!
+
+Thank you for all the ratings and reviews.
+
+If you are satisfied with this plugin, please recommend it to your friends. Every new person using our plugin is valuable to us.
+
+This is all very important to us and allows us to do even better things for you!
 
 == Screenshots ==
 
@@ -67,8 +79,19 @@ Advanced Custom Fields in version 5 (also free). ACF below version 5 has a diffe
 
 == Changelog ==
 
+= 3.4.3 =
+* New filter `acfbs_search_post_object_fields` to select post fields using to search
+
+= 3.4.2 =
+* Fix for `posts_join` filter
+* Update priority of `posts_search` filter (from 10 do 0)
+
+= 3.4.1 =
+* New filter `acfbs_search_is_available` to block search
+
 = 3.4.0 =
 * New way to start search engine
+* New filter `acfbs_is_available` to turn off search engine
 
 = 3.3.2 =
 * Validation for fields types on settings page
