@@ -147,7 +147,8 @@ if ( ! defined( 'WP_DEBUG' ) ) {
     define('WP_DEBUG', false);
 }
 
-// https://pantheon.io/docs/http-to-https#redirect-to-https-and-the-primary-domain
+
+
 if (isset($_ENV['PANTHEON_ENVIRONMENT']) && php_sapi_name() != 'cli') {
   // Redirect to https://$primary_domain in the Live environment
   if ($_ENV['PANTHEON_ENVIRONMENT'] === 'live') {
@@ -184,6 +185,7 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT']) && php_sapi_name() != 'cli') {
     exit();
   }
 }
+
 
 /* That's all, stop editing! Happy Pressing. */
 
