@@ -1,3 +1,5 @@
+vendor
+
 # WordPress #
 ############
 wp-config-local.php
@@ -49,6 +51,7 @@ Thumbs.db
 # Vim generated files #
 ######################
 *.un~
+.idea
 
 # SASS #
 ##########

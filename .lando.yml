@@ -1,0 +1,5 @@
+name: wordpress-ci
+
+# config:
+#   site: pantheon site name
+#   id: pantheon site id
