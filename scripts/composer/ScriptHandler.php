@@ -98,7 +98,7 @@ class ScriptHandler
     $io = $event->getIO();
     $site = $io->ask('Provide new site name (for example: ifa-d8): ');
     exec('git remote remove origin');
-    exec('terminus build:project:create --pantheon-site="'. $site . '" --team="Taoti Creative" --org="Taoti" --admin-email="taotiadmin@taoti.com" --admin-password="Taoti1996" --ci=circleci --git=github ./ '. $site . ' --preserve-local-repository');
+    exec('terminus build:project:create --pantheon-site="'. $site . '" --team="Taoti Creative" --org="Taoti" --admin-email="taotiadmin@taoti.com" --admin-password="Taoti1996" --ci=circleci --git=github ./ "'. $site . '" --preserve-local-repository');
     file_put_contents('.lando.yml', "
 name: {$site}
 config:
