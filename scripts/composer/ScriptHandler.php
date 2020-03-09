@@ -41,12 +41,6 @@ class ScriptHandler
     $gitignoreContents = file_get_contents($gitignoreFile);
     $gitignoreContents = preg_replace('/.*::: cut :::*/s', '', $gitignoreContents);
     file_put_contents($gitignoreFile, $gitignoreContents);
-
-    // Fix up .gitignore: remove everything above the "::: cut :::" line
-    $gitignoreFile = getcwd() . '/web/wp-content/themes/THEME_NAME/.gitignore';
-    $gitignoreContents = file_get_contents($gitignoreFile);
-    $gitignoreContents = preg_replace('/.*::: cut :::*/s', '', $gitignoreContents);
-    file_put_contents($gitignoreFile, $gitignoreContents);
   }
 
   protected static function copyDirectory($source, $dest) {
@@ -99,7 +93,7 @@ class ScriptHandler
     $site = $io->ask('Provide new site name (for example: ifa-d8): ');
     $site = preg_replace('/-+/', '-', preg_replace(
       '/[^a-z0-9]+/',
-      '_',
+      '-',
       strtolower($site)
     ));
 
