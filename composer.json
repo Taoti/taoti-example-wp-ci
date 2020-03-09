@@ -20,7 +20,7 @@
         ],
         "build-theme": [
             "cd web/wp-content/themes/THEME_NAME && npm install",
-            "gulp css --cwd=web/wp-content/themes/THEME_NAME"
+            "gulp --cwd=web/wp-content/themes/THEME_NAME"
         ],
         "lint": [
             "find web/wp-content/plugins web/wp-content/themes -name '*.php' -exec php -l {} \\;"
