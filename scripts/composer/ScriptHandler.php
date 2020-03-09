@@ -97,6 +97,12 @@ class ScriptHandler
     self::setupTheme($event);
     $io = $event->getIO();
     $site = $io->ask('Provide new site name (for example: ifa-d8): ');
+    $site = preg_replace('/-+/', '-', preg_replace(
+      '/[^a-z0-9]+/',
+      '_',
+      strtolower($site)
+    ));
+
     exec('git remote remove origin');
     exec('terminus build:project:create --pantheon-site="'. $site . '" --team="Taoti Creative" --org="Taoti" --admin-email="taotiadmin@taoti.com" --admin-password="Taoti1996" --ci=circleci --git=github ./ "'. $site . '" --preserve-local-repository');
     file_put_contents('.lando.yml', "
