@@ -157,3 +157,6 @@ gulp.task( 'watch', function() {
 // Default task -- runs scss and watch functions
 gulp.task( 'default', gulp.series(['images', 'scripts', 'scss', 'scss-other-criticals', 'watch']), function() {
 });
+
+gulp.task( 'build', gulp.series(['images', 'scripts', 'scss', 'scss-other-criticals']), function() {
+});
