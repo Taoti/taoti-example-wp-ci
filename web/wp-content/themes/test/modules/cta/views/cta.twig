@@ -1,0 +1,19 @@
+{% block cta %}
+<div class="{{ classes }}">
+    <div class="l-container cta-inner">
+
+        {% if heading %}
+			<h2 class="cta-heading">{{ heading }}</h2>
+		{% endif %}
+
+		{% if description %}
+			<div class="cta-description">{{ description }}</div>
+	    {% endif %}
+
+		{% if button_url and button_label %}
+			<a class="cta-button" href="{{ button_url }}">{{ button_label }}</a>
+		{% endif %}
+
+    </div>
+</div>
+{% endblock %}

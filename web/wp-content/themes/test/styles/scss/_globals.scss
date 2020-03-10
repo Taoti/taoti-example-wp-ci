@@ -1,0 +1,53 @@
+// Mixins that can be used globally go here.
+// This file should not output anything, just include it as a library in other files - so do not add regular CSS rules here.
+
+@mixin button() {
+    background-color: transparent;
+    border-radius: .25em;
+    border: none;
+    border: 1px solid $link;
+    color: $link;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1rem;
+    padding: .7em 1.4em;
+    text-align: center;
+    transition: border-color 100ms linear, color 100ms linear, background-color 100ms linear;
+
+    &:hover {
+        background-color: $hover;
+        border-color: $hover;
+        color: $invert;
+        text-decoration: none;
+    }
+
+}
+
+
+
+@mixin button-filled() {
+    @include button();
+    background-color: $link;
+    border: none;
+    color: $invert;
+
+    &:hover {
+        background-color: $hover;
+        color: $invert;
+    }
+
+}
+
+
+
+@mixin button-action() {
+    @include button();
+    background-color: $link;
+    border: none;
+    color: $invert;
+
+    &:hover {
+        background-color: $hover;
+    }
+
+}

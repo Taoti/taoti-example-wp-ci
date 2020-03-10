@@ -1,0 +1,70 @@
+// Libraries
+// (these should not contain anything that actually outputs to a CSS file, so just stuff like variables and mixins)
+@import '../config';
+@import '../globals';
+
+/*
+### This file lists out a bunch of different selectors you can use to style something on the login screen.
+### The main ones you'll want to style are the logo and button; there are some rules entered for these that are commented out, but you can figure out which rules to change by looking at those.
+*/
+
+body {
+	//background-color: #fff;
+}
+
+// ###########################
+// ### Change logo here:
+/*body.login div#login h1 a {
+	display: block;
+    background-image:url('images/CASE_logo_main.svg');
+    background-size: 100% auto;
+    height: 150px;
+    transition:none;
+    width: 308px;
+}
+body.login div#login h1 a:hover {
+    //background-position:center bottom;
+}*/
+
+
+
+body.login div#login form#loginform {
+	//background-color: $background-light-green;
+}
+
+.login label {
+	//color: $secondary;
+}
+
+body.login div#login form#loginform p {}
+body.login div#login form#loginform p label {}
+body.login div#login form#loginform input {}
+body.login div#login form#loginform input#user_login {}
+body.login div#login form#loginform input#user_pass {}
+body.login div#login form#loginform p.forgetmenot {}
+body.login div#login form#loginform p.forgetmenot input#rememberme {}
+body.login div#login form#loginform p.submit {}
+
+
+
+// ###########################
+// ### Change the button style here
+body.login div#login form#loginform p.submit input#wp-submit {
+	//@extend .button;
+	font-weight: 400;
+	line-height: 1em;
+	padding: .25em 1.5em;
+	text-shadow: none;
+	}
+	body.login div#login form#loginform p.submit input#wp-submit:hover,
+	body.login div#login form#loginform p.submit input#wp-submit:active {
+		/*background-color: #9778ee;
+		cursor:pointer;*/
+		}
+
+
+
+body.login div#login p#nav {}
+body.login div#login p#nav a {}
+body.login div#login p#backtoblog {}
+body.login div#login p#backtoblog a {}

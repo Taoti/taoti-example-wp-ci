@@ -1,0 +1,19 @@
+{% block hero %}
+<div class="{{ classes }}">
+    <div class="l-container hero-inner">
+
+        {% if heading %}
+			<h2 class="hero-heading">{{ heading }}</h2>
+		{% endif %}
+
+		{% if description %}
+			<div class="hero-description">{{ description }}</div>
+	    {% endif %}
+
+		{% if button_url and button_label %}
+			<a class="hero-button" href="{{ button_url }}">{{ button_label }}</a>
+		{% endif %}
+
+    </div>
+</div>
+{% endblock %}

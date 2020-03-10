@@ -24,10 +24,10 @@ services:
 tooling:
   npm:
     service: appserver
-    cmd: cd /app/web/wp-content/themes/THEME_NAME && npm
+    cmd: cd /app/web/wp-content/themes/test && npm
   gulp:
     service: appserver
-    cmd: cd /app/web/wp-content/themes/THEME_NAME && gulp
+    cmd: cd /app/web/wp-content/themes/test && gulp
   xdebug-on:
     service: appserver
     description: Enable xdebug for nginx.

@@ -1,0 +1,50 @@
+// Libraries
+// (these should not contain anything that actually outputs to a CSS file, so just stuff like variables and mixins)
+@import '../config';
+@import '../globals';
+
+
+
+// Add a more visible, alternating border color to the repeater ACF options.
+.acf-table > tbody > tr:nth-child(2n) > td.order {
+    background: #e9e9e9;
+}
+.acf-table > tbody > tr:nth-child(2n+1) > td.order {
+	background: #ccc;
+    color: #fff;
+    text-shadow: 0 1px 0 #888;
+}
+
+
+
+// Like above, but with different colors - alternate purple and blue colors:
+// (add the 'alternate-colors' class to a repeater field in the ACF field options)
+
+.alternate-colors .acf-table > tbody > tr:nth-child(2n) > td.order {
+    background: blue;
+    color: #fff;
+    text-shadow: none;
+}
+.alternate-colors .acf-table > tbody > tr:nth-child(2n+1) > td.order {
+	background: purple;
+    color: #fff;
+    text-shadow: none;
+}
+
+
+
+
+// Hide the Quick Draft dashboard widget
+#dashboard_quick_press {
+    display: none;
+}
+
+// Woocommerce Adimin
+#woocommerce-product-data {
+    .type_box, .linked_product_options, .attribute_options, #advanced_product_data .options_group {
+        display: none !important;
+    }
+    #advanced_product_data .options_group.reviews {
+        display: block !important;
+    }
+}

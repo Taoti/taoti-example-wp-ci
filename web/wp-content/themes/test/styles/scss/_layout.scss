@@ -1,0 +1,32 @@
+// Layout styles
+// These are the few reusable classes to use that accomplish the layout of the page, mostly to keep a common max-width and margins.
+
+
+
+.l-container {
+	max-width: $max-width;
+	width: 100%;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+.l-text-column {
+	max-width: $max-width-text;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+.l-module {
+
+	+ .l-module {
+		// margin-top: 7rem;
+	}
+
+}

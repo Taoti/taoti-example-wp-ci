@@ -1,0 +1,27 @@
+{
+  "name": "jp-wordpress",
+  "repository": "none",
+  "version": "1.0.2",
+  "description": "Set up for the base WordPress theme.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "James Pfleiderer",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean-css": "^3.9.3",
+    "gulp-concat": "^2.6.0",
+    "gulp-image": "^4.3.0",
+    "gulp-newer": "^1.1.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-watch": "^4.3.5",
+    "node-sass": "^4.9.4"
+  }
+}

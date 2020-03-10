@@ -1,0 +1,26 @@
+// Set up the critical styles that are loaded on every page.
+
+// Libraries
+// (these should not contain anything that actually outputs to a CSS file, so just stuff like variables and mixins)
+@import 'scss/config';
+@import 'scss/globals';
+
+// Reset
+@import 'scss/reset';
+
+// Typography ( all the base font items - families, sizes, paddings, line-heights, etc. )
+@import 'scss/typography';
+
+// Layout ( grid, wrappers, etc - including mdeia queries )
+@import 'scss/layout';
+
+// Globals ( any classes or elements that are commonly used, like .button or .icon )
+@import 'scss/base';
+@import 'scss/header';
+@import 'scss/navigation';
+
+// Modules ( anything shared cross template )
+@import '../modules/hero/scss/hero';
+
+// Templates ( template-name - including media queries. You can override base module styles here too )
+// @import 'scss/template-services-critical';

@@ -1,0 +1,77 @@
+html,
+body {
+    overflow-x: hidden;
+}
+
+html {
+    font-size: $base-font-size;
+}
+
+body {
+    color: $text;
+    font-family: $sans;
+    font-size: $body-font-size;
+    line-height: 1.4;
+}
+
+a {
+    color: $link;
+    text-decoration: none;
+    transition: color 100ms linear;
+
+    &:hover {
+        color: $hover;
+        text-decoration: underline;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: $serif;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 5rem;
+}
+h2 {
+    font-size: 3.2rem;
+}
+h3 {
+    font-size: 2rem;
+}
+h4 {
+    font-size: 1.6rem;
+}
+h5 {
+    font-size: 1rem;
+}
+
+p,
+ul,
+ol {
+    // margin-bottom: 1.4em;
+}
+
+p {}
+
+ul {}
+ol {}
+
+blockquote {}
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+img {
+    image-rendering: -webkit-optimize-contrast;
+}

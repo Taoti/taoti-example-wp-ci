@@ -1,0 +1,56 @@
+// Any SASS variables you'll need throughout the project go here.
+// This file should not output anything, just include it as a library in other files - so do not add regular CSS rules here.
+
+//##### Sizes
+$base-font-size: 10px;
+$body-font-size: 1.6rem;
+$ratio: 1.414;
+$max-width: 1200px;
+$max-width-text: 50em;
+
+//##### Fonts
+$sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+$serif: Georgia, serif;
+
+
+//##### Cubic Bezier
+$bounce: cubic-bezier(0, 0.86, 0.46, 1.24);
+
+//##### Colors
+$color-1: #ff00ff;
+$color-2: #ffff00;
+$color-3: #00ffff;
+
+$text: #444;
+$invert: #fff;
+
+$link: $color-1;
+$hover: $color-2;
+
+$success: #398f14;
+$error: red;
+
+
+
+// Social Colors Guys, Social Colors
+$twitter: #00aced;
+$facebook: #3b5998;
+$linkedin: #007bb6;
+$googleplus: #dd4b39;
+$pinterest: #cb2027;
+$youtube: #bb0000;
+$vimeo: #aad450;
+$tumblr: #32506d;
+$instagram: #517fa4;
+$flickr: #ff0084;
+$dribbble: #ea4c89;
+$quora: #a82400;
+$foursquare: #0072b1;
+$forrst: #5B9A68;
+$vk: #45668e;
+$wordpress: #21759b;
+$stumbleupon: #EB4823;
+$yahoo: #7B0099;
+$blogger: #fb8f3d;
+$soundcloud: #ff3a00;
+$github: #703083;
