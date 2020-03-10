@@ -26,10 +26,10 @@
             "find web/wp-content/plugins web/wp-content/themes -name '*.php' -exec php -l {} \\;"
         ],
         "code-sniff": [
-            "./vendor/bin/phpcs --standard=WordPress --extensions=php --ignore=_recommended_plugins,node_modules,vendor,source ./web/wp-content/themes/test"
+            "./vendor/bin/phpcs --standard=WordPress --extensions=php --ignore=_recommended-plugins,node_modules,vendor,source ./web/wp-content/themes/test"
         ],
         "code-fix": [
-            "./vendor/bin/phpcbf --standard=WordPress --extensions=php --ignore=_recommended_plugins,node_modules,vendor,source ./web/wp-content/themes/test"
+            "./vendor/bin/phpcbf --standard=WordPress --extensions=php --ignore=_recommended-plugins,node_modules,vendor,source ./web/wp-content/themes/test"
         ],
         "style-sniff": "stylelint \"./web/wp-content/themes/test/**/*.scss\"",
         "style-fix": "stylelint \"./web/wp-content/themes/test/**/*.scss\" --fix",

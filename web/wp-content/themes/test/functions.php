@@ -1,33 +1,33 @@
 <?php
 
 
-### Function includes
-include 'inc/acf/acf.php';
-include 'inc/acf/acf-json.php';
-include 'inc/wp-reset.php';
-include 'inc/post-types.php';
-include 'inc/taxonomies.php';
-include 'inc/helpers.php';
-include 'inc/globals.php';
-include 'inc/excerpt.php';
-include 'inc/database.php';
-include 'inc/walkers.php';
-include 'inc/enqueue-critical-css.php';
-include 'inc/enqueue.php';
-include 'inc/image-sizes.php';
-include 'inc/shortcodes.php';
-include 'inc/navigation.php';
-include 'inc/options.php';
-include 'inc/customizer.php';
-include 'inc/widgets.php';
-include 'inc/admin-bar.php';
-include 'inc/tinyMCE/tinymce.styles.php';
-include 'inc/tinyMCE/tinymce.toolbars.php';
-include 'inc/tinyMCE/tinymce.customizations.php';
-include 'inc/user-roles.php';
+// Function includes
+require 'inc/acf/acf.php';
+require 'inc/acf/acf-json.php';
+require 'inc/wp-reset.php';
+require 'inc/post-types.php';
+require 'inc/taxonomies.php';
+require 'inc/helpers.php';
+require 'inc/globals.php';
+require 'inc/excerpt.php';
+require 'inc/database.php';
+require 'inc/walkers.php';
+require 'inc/enqueue-critical-css.php';
+require 'inc/enqueue.php';
+require 'inc/image-sizes.php';
+require 'inc/shortcodes.php';
+require 'inc/navigation.php';
+require 'inc/options.php';
+require 'inc/customizer.php';
+require 'inc/widgets.php';
+require 'inc/admin-bar.php';
+require 'inc/tinyMCE/tinymce.styles.php';
+require 'inc/tinyMCE/tinymce.toolbars.php';
+require 'inc/tinyMCE/tinymce.customizations.php';
+require 'inc/user-roles.php';
 
-### Modules
-include 'inc/modules.php';
+// Modules
+require 'inc/modules.php';
 
-### Page Builder (flex content)
-include 'flex-content/flex-content.php';
+// Page Builder (flex content)
+require 'flex-content/flex-content.php';
