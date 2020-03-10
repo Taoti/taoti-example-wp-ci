@@ -46,5 +46,8 @@
         "git-hooks": "Add git commit hooks to automatically perform standards fixes. Pass argument `lando` if hooks will be used with Lando.",
         "setup-new-site": "Perform initialization for a new site.",
         "setup-new-theme":"Used by `setup-new-site` to add new theme to the new site."
+    },
+    "require": {
+        "wp-cli/wp-cli-bundle": "^2.4"
     }
 }
