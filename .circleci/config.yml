@@ -80,7 +80,7 @@ jobs:
 
       - run:
           name: Check PHP Standards
-          command: ./.ci/test/static/run
+          command: composer code-sniff
 
       - save_cache:
           key: composer-cache-{{ checksum "composer.lock" }}
