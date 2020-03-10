@@ -1,2 +1,2 @@
 <?php
-### Custom walkers for nav menus, taxonomies, etc.
+// Custom walkers for nav menus, taxonomies, etc.
