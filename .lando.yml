@@ -1,5 +1,6 @@
-name: wordpress-ci
 
-# config:
-#   site: pantheon site name
-#   id: pantheon site id
+name: taoti-example-wp-ci
+config:
+  site: taoti-example-wp-ci
+#  id: PANTHEONSITEID
+    
