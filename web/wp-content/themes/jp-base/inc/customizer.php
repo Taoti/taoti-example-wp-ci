@@ -170,10 +170,9 @@ function jp_customize_register_cb( $wp_customize ) {
 }
 add_action( 'customize_register', 'jp_customize_register_cb' );
 
-
-
-
-
+/**
+ * Customize live preview.
+ */
 function taoti_customizer_live_preview() {
 	wp_enqueue_script( 'taoti-themecustomizer', get_template_directory_uri() . '/js/admin/theme-customizer.js', array( 'jquery', 'customize-preview' ), '1.0', true );
 }

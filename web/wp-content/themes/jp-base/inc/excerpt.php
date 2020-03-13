@@ -18,9 +18,11 @@ function taoti_store_page_builder_output( $post_id, $post, $update ) {
 	$post_types_with_page_builder = taoti_get_post_types_with_page_builder();
 
 	if ( in_array( get_post_type( $post_id ), $post_types_with_page_builder ) ) {
+	  // phpcs:disable
 		global $post;
 		$post = get_post( $post_id );
 		setup_postdata( $post );
+    //phpcs:enable
 
 		// Get the output of the page builder.
 		ob_start();

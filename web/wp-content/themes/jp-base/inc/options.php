@@ -1,7 +1,7 @@
 <?php
 // Add option pages via ACF.
 
-if ( function_exists( 'acf_add_options_page' ) ) {
+// if ( function_exists( 'acf_add_options_page' ) ) {
 
 	// Examples for adding parent-level option pages.
 	// acf_add_options_page('General');
@@ -16,4 +16,4 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 	// )
 	// );
 
-}
+// }

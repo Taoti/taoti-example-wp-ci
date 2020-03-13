@@ -9,6 +9,11 @@ class Example {
 	protected $defaults;
 	protected $context;
 
+	/**
+	 * Example constructor.
+	 *
+	 * @param array $args
+	 */
 	public function __construct( $args = array() ) {
 		$this->defaults = array(
 			'option1' => false,
@@ -22,6 +27,9 @@ class Example {
 		$this->context['option2'] = $option2;
 	}
 
+	/**
+	 * Render the component's twig file via Timber with current context.
+	 */
 	public function render() {
 		Timber::render( 'example.twig', $this->context );
 	}
