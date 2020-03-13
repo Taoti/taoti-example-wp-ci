@@ -17,6 +17,11 @@ class Hero {
 	protected $defaults;
 	protected $context;
 
+	/**
+	 * Hero constructor.
+	 *
+	 * @param array $args
+	 */
 	public function __construct( $args = array() ) {
 		$this->defaults = array(
 			'heading'      => false,
@@ -40,6 +45,9 @@ class Hero {
 
 	}
 
+	/**
+	 * Render the component's twig file via Timber with current context.
+	 */
 	public function render() {
 		Timber::render( 'hero.twig', $this->context );
 	}

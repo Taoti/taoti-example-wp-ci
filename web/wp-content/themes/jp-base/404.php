@@ -20,6 +20,7 @@ get_header();
 		// Check inc/customizer.php for more info.
 		$page_title = get_theme_mod( 'jp_404_page_title', 'Not Found (404)' );
 		$content    = get_theme_mod( 'jp_404_content', 'The content you were looking for could not be found.' );
+		// phpcs:disable
 		?>
 		<h1 class="page-title js-customizer-404Title"><?php echo $page_title; ?></h1>
 
@@ -33,4 +34,5 @@ get_header();
 
 
 <?php
+// phpcs:enable
 get_footer();
