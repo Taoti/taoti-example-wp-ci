@@ -40,10 +40,12 @@ function jp_styles() {
 
 	// Instructions on loading the non-critical CSS asyncronously:
 	// https://github.com/filamentgroup/loadCSS
+	// phpcs:disable
 	?>
 	<link rel="preload" href="<?php echo $css_href; ?>" as="style" onload="this.onload=null;this.rel='stylesheet'">
 	<noscript><link rel="stylesheet" href="<?php echo $css_href; ?>"></noscript>
 	<?php
+	// phpcs:enable
 
 }
 add_action( 'jp_css', 'jp_styles' );
