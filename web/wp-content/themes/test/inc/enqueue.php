@@ -1,4 +1,14 @@
 <?php
+function taoti_some_function(){
+	// This should throw a warning.
+	_x( 'ohai', 'domain' );
+
+	_x( 'ohaiagain', 'domain' );
+
+	die(); // Should at least warn for not using wp_die()
+	// return false;
+}
+
 // Enqueue styles and scripts
 
 // All scripts should load at the end of the page, use TRUE for the 5th parameter of wp_register_script().
