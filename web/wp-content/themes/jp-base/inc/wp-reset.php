@@ -46,9 +46,9 @@ function jp_unregister_default_widgets() {
 add_action( 'widgets_init', 'jp_unregister_default_widgets', 11 );
 
 
-
-
-
+/**
+ * Register theme supports.
+ */
 function jp_theme_setup() {
 
 	// Theme support stuff
@@ -118,7 +118,7 @@ add_filter( 'wp_terms_checklist_args', 'jp_taxonomy_checklist_checked_ontop_filt
 
 // Add excerpts to pages
 function jp_add_excerpts_to_pages() {
-	 add_post_type_support( 'page', 'excerpt' );
+	add_post_type_support( 'page', 'excerpt' );
 }
 add_action( 'init', 'jp_add_excerpts_to_pages' );
 
@@ -202,9 +202,9 @@ function jp_category_and_tag_archives( $wp_query ) {
 	}
 
 }
-if ( ! is_admin() ) {
+// if ( ! is_admin() ) {
 	// add_action( 'pre_get_posts', 'jp_category_and_tag_archives' );
-}
+// }
 
 
 
@@ -222,7 +222,9 @@ add_filter( 'script_loader_tag', 'jp_remove_type_attr', 10, 2 );
 
 
 
-
+/*
+ * Remove scripts.
+ */
 function jp_deregister_scripts() {
 	wp_deregister_script( 'wp-embed' );
 }

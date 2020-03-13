@@ -71,7 +71,9 @@ function jp_registers_taxonomies() {
 add_action( 'init', 'jp_registers_taxonomies', 0 );
 
 
-
+/*
+ * Generate labels.
+ */
 function jp_generate_tax_labels_array( $args = array() ) {
 
 	$defaults = array(
@@ -113,8 +115,9 @@ function jp_generate_tax_labels_array( $args = array() ) {
 	return $labels;
 }
 
-
-
+/*
+ * Generate taxonomy default arguments.
+ */
 function jp_generate_tax_args_array( $slug, $args = array() ) {
 
 	// These are the default arguments we use for taxonomies 99% of the time.

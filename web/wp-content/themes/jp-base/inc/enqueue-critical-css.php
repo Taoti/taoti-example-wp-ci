@@ -74,9 +74,11 @@ function taoti_output_critical_css() {
 	if ( ! empty( $css_output ) ) :
 		echo '<style>';
 
+	  // phpcs:disable
 		foreach ( $css_output as $css_code ) :
 			echo $css_code;
 		endforeach;
+		// phpcs:enable
 
 		echo "</style>\r\n";
 	endif;

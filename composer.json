@@ -26,15 +26,15 @@
             "find web/wp-content/plugins web/wp-content/themes -name '*.php' -exec php -l {} \\;"
         ],
         "code-sniff": [
-            "./vendor/bin/phpcs --standard=WordPress --extensions=php --ignore=_recommended-plugins,node_modules,vendor,source ./web/wp-content/themes/THEME_NAME"
+            "./vendor/bin/phpcs ./web/wp-content/themes/THEME_NAME"
         ],
         "code-fix": [
-            "./vendor/bin/phpcbf --standard=WordPress --extensions=php --ignore=_recommended-plugins,node_modules,vendor,source ./web/wp-content/themes/THEME_NAME"
+            "./vendor/bin/phpcbf ./web/wp-content/themes/THEME_NAME"
         ],
         "style-sniff": "stylelint \"./web/wp-content/themes/THEME_NAME/**/*.scss\"",
         "style-fix": "stylelint \"./web/wp-content/themes/THEME_NAME/**/*.scss\" --fix",
         "auto-fix":[
-            "./vendor/bin/phpcbf -q --standard=WordPress --extensions=php --ignore=_recommended_plugins,node_modules,vendor,source ./web/wp-content/themes/THEME_NAME",
+            "./vendor/bin/phpcbf -q ./web/wp-content/themes/THEME_NAME",
             "stylelint \"./web/themes/THEME_NAME/**/*.scss\" --fix --quiet"
         ],
         "git-hooks":"DrupalProject\\composer\\ScriptHandler::enableGitHooks",
