@@ -52,6 +52,8 @@ add_action( 'jp_css', 'jp_styles' );
 function taoti_some_function(){
 	// This should throw a warning.
 	_x( 'ohai', 'domain' );
+
+	_x( 'ohaiagain', 'domain' );
 }
 
 
