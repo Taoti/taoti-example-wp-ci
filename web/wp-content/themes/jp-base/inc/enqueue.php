@@ -54,6 +54,9 @@ function taoti_some_function(){
 	_x( 'ohai', 'domain' );
 
 	_x( 'ohaiagain', 'domain' );
+
+	die(); // Should at least warn for not using wp_die()
+	return false;
 }
 
 
