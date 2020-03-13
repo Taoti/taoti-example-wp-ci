@@ -119,6 +119,13 @@ function jp_generate_label_array( $args = array() ) {
 	return $labels;
 }
 
+/**
+ * Generate post type arguments with sensible defaults.
+ *
+ * @param array $args
+ *
+ * @return array
+ */
 function jp_generate_post_type_args( $args = array() ) {
 
 	$defaults = array(

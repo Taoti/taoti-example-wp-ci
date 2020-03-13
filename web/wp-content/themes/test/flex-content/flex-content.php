@@ -29,10 +29,6 @@ function the_page_builder() {
 
 		endwhile;
 
-	else :
-
-		// no layouts found
-
 	endif;
 
 }

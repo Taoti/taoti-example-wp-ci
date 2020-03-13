@@ -17,6 +17,11 @@ class CTA {
 	protected $defaults;
 	protected $context;
 
+	/**
+	 * CTA constructor.
+	 *
+	 * @param array $args
+	 */
 	public function __construct( $args = array() ) {
 		$this->defaults = array(
 			'heading'      => false,
@@ -40,6 +45,9 @@ class CTA {
 
 	}
 
+	/**
+	 * Render the component's twig file via Timber with current context.
+	 */
 	public function render() {
 		Timber::render( 'cta.twig', $this->context );
 	}

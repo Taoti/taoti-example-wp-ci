@@ -40,13 +40,14 @@
 </head>
 <body <?php body_class(); ?>>
 
-	<?php do_action( 'jp_body_start' ); ?>
+	<?php do_action( 'jp_body_start' ); // phpcs:disable ?>
 
 <header id="header">
 	<div id="header-inner">
 		<a href="<?php echo home_url(); ?>" class="header-logo"><?php echo file_get_contents( get_template_directory() . '/images/logo.svg' ); ?></a>
 
 		<?php
+        // phpcs:enable
 		$theme_location = 'main-navigation';
 		if ( has_nav_menu( $theme_location ) ) :
 			$args = array(

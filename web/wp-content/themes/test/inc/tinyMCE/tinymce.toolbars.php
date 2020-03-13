@@ -22,6 +22,7 @@ add_filter( 'tiny_mce_before_init', 'jp_tinymce_custom_formats' );
 // For the Basic WYSIWYG (via ACF)
 function jp_toolbars( $toolbars ) {
 	// echo "<pre>"; print_r($toolbars); echo "</pre>";
+
 	/*
 	Here's what gets output when you print_r($toolbars):
 	Array
@@ -109,6 +110,7 @@ add_filter( 'acf/fields/wysiwyg/toolbars', 'jp_toolbars' );
 // For the FIRST row of the Full WYSIWYG buttons
 function jp_tinymce_buttons( $buttons ) {
 	// echo "<pre>"; print_r($buttons); echo "</pre>";
+
 	/*
 	Array (
 		[0] => bold
@@ -139,6 +141,7 @@ add_filter( 'mce_buttons', 'jp_tinymce_buttons' );
 // For the SECOND row of the Full WYSIWYG buttons
 function jp_tinymce_buttons2( $buttons ) {
 	// echo "<pre>"; print_r($buttons); echo "</pre>";
+
 	/*
 	Array (
 		[0] => formatselect
