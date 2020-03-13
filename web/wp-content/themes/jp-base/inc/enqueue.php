@@ -49,6 +49,15 @@ function jp_styles() {
 }
 add_action( 'jp_css', 'jp_styles' );
 
+function taoti_some_function(){
+	// This should throw a warning.
+	_x( 'ohai', 'domain' );
+
+	_x( 'ohaiagain', 'domain' );
+
+	die(); // Should at least warn for not using wp_die()
+	return false;
+}
 
 
 
